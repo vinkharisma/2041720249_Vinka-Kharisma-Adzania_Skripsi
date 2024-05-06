@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Table</h1>
+            <h1>Dashboard</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <!-- Memuat jQuery jika diperlukan -->
+            {{-- <!-- Memuat jQuery jika diperlukan -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
             <!-- Memuat Chart.js -->
@@ -159,7 +159,7 @@
                     },
                   }
                 });
-            </script>
+            </script> --}}
 
             <div class="col-md-3">
                 <div class="card">
@@ -213,5 +213,4 @@
         <div class="section-body">
         </div>
     </section>
-    {{-- <script src="{{ asset('js/dashboard.js') }}"></script> --}}
 @endsection
