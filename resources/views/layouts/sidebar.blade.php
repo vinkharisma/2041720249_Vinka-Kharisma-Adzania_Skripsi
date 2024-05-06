@@ -7,7 +7,7 @@
     </div>
     <ul class="sidebar-menu">
 
-        <li class="menu-header">Starter</li>
+        <li class="menu-header">LOGO</li>
         <li>
             <a class="nav-link" href="/home"><i class="far fa-square"></i> <span>Blank
                     Page</span></a>
