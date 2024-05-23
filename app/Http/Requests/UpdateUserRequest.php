@@ -25,7 +25,10 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'name' => 'required|string|max:50'
+            'name' => 'required|string|max:50',
+            'no_pegawai' => 'required|string|max:50',
+            'departemen' => 'required|string|max:50',
+            'no_hp' => 'required|string|max:50',
         ];
     }
 }

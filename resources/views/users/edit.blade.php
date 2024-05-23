@@ -45,6 +45,43 @@
                                 </div>
                             @enderror
                         </div>
+
+                        {{-- No Pegawai --}}
+                        <div class="form-group">
+                            <label for="no_pegawai">No Pegawai</label>
+                            <input type="text" class="form-control @error('no_pegawai') is-invalid @enderror" id="no_pegawai"
+                                name="no_pegawai" value="{{ $user->no_pegawai }}">
+                            @error('no_pegawai')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        {{-- Departemen --}}
+                        <div class="form-group">
+                            <label for="departemen">Departemen</label>
+                            <input type="text" class="form-control @error('departemen') is-invalid @enderror" id="departemen"
+                                name="departemen" value="{{ $user->departemen }}">
+                            @error('departemen')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        {{-- No HP --}}
+                        <div class="form-group">
+                            <label for="no_hp">No HP</label>
+                            <input type="text" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp"
+                                name="no_hp" value="{{ $user->no_hp }}">
+                            @error('no_hp')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                     </div>
                     <div class="card-footer text-right">
                         <button class="btn btn-primary">Submit</button>

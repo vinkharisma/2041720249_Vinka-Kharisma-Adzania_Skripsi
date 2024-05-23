@@ -44,12 +44,18 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => ['required', 'string', 'min:8', 'confirmed', Password::defaults()],
             'device_name' => 'required',
+            'no_pegawai' => 'required|string',
+            'departemen' => 'required|string',
+            'no_hp' => 'required|string',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'no_pegawai' => $request->no_pegawai,
+            'departemen' => $request->departemen,
+            'no_hp' => $request->no_hp,
         ]);
 
         return response()->json(

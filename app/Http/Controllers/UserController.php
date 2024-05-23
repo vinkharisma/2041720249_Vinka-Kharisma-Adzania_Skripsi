@@ -44,7 +44,16 @@ class UserController extends Controller
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
             })
-            ->select('id', 'name', 'email', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
+            ->when($request->input('no_pegawai'), function ($query, $no_pegawai) {
+                return $query->where('no_pegawai', 'like', '%' . $no_pegawai . '%');
+            })
+            ->when($request->input('departemen'), function ($query, $departemen) {
+                return $query->where('departemen', 'like', '%' . $departemen . '%');
+            })
+            ->when($request->input('no_hp'), function ($query, $no_hp) {
+                return $query->where('no_hp', 'like', '%' . $no_hp . '%');
+            })
+            ->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
             ->paginate(10);
         return view('users.index', compact('users'));
     }
@@ -73,8 +82,11 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'no_pegawai' => $request['no_pegawai'],
+            'departemen' => $request['departemen'],
+            'no_hp' => $request['no_hp'],
         ]);
-        return redirect(route('user.index'))->with('success', 'Data Berhasil Ditambahkan');;
+        return redirect(route('user.index'))->with('success', 'Data Added Successfully');;
     }
 
     /**
@@ -113,7 +125,7 @@ class UserController extends Controller
         $validate = $request->validated();
 
         $user->update($validate);
-        return redirect()->route('user.index')->with('success', 'User Berhasil Diupdate');
+        return redirect()->route('user.index')->with('success', 'User Updated Successfully');
     }
 
     /**
@@ -144,6 +156,9 @@ class UserController extends Controller
                 'name' => $user[1],
                 'email' => $user[2],
                 'password' => $user[3],
+                'no_pegawai' => $user[7],
+                'departemen' => $user[8],
+                'no_hp' => $user[9],
             ]);
         }
         return redirect()->route('user.index');

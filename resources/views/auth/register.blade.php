@@ -40,6 +40,8 @@
                                 <form action="{{ route('register') }}" method="POST">
                                     @csrf
                                     <div class="row">
+
+                                        {{-- Full Name --}}
                                         <div class="form-group col-6">
                                             <div class="form-group">
                                                 <label for="first_name">Full Name</label>
@@ -55,6 +57,22 @@
                                             </div>
                                         </div>
 
+                                        {{-- No Pegawai --}}
+                                        <div class="form-group col-6">
+                                            <div class="form-group">
+                                                <label for="no_pegawai">No Pegawai</label>
+                                                <input id="no_pegawai" type="text" name="no_pegawai"
+                                                    class="form-control @error('no_pegawai') is-invalid @enderror"
+                                                    placeholder="Masukkan No Pegawai">
+                                                @error('no_pegawai')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        {{-- Email --}}
                                         <div class="form-group col-6">
                                             <div class="form-group">
                                                 <label for="email">Email</label>
@@ -69,8 +87,23 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
+
+                                        {{-- Departemen --}}
+                                        <div class="form-group col-6">
+                                            <div class="form-group">
+                                                <label for="departemen">Departemen</label>
+                                                <input id="departemen" type="text" name="departemen"
+                                                    class="form-control @error('departemen') is-invalid @enderror"
+                                                    placeholder="Masukkan Nama Departemen">
+                                                @error('departemen')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        {{-- Password --}}
                                         <div class="form-group col-6">
                                             <div class="form-group">
                                                 <label for="password" class="d-block">Password</label>
@@ -85,10 +118,25 @@
                                             </div>
                                         </div>
 
+                                        {{-- No HP --}}
                                         <div class="form-group col-6">
                                             <div class="form-group">
-                                                <label for="password_confirmation" class="d-block">Password
-                                                    Confirmation</label>
+                                                <label for="no_hp">No HP</label>
+                                                <input id="no_hp" type="text" name="no_hp"
+                                                    class="form-control @error('no_hp') is-invalid @enderror"
+                                                    placeholder="Masukkan No HP">
+                                                @error('no_hp')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        {{-- Password Confirmation --}}
+                                        <div class="form-group col-6">
+                                            <div class="form-group">
+                                                <label for="password_confirmation" class="d-block">Password Confirmation</label>
                                                 <input id="password_confirmation" name="password_confirmation"
                                                     type="password" class="form-control"
                                                     placeholder="Masukkan Konfirmasi Password">

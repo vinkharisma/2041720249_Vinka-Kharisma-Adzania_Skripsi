@@ -26,7 +26,10 @@ class StoreUserRequest extends FormRequest
         return [
             'email' => 'required|email|unique:users',
             'name' => 'required|string|max:50',
-            'password' => 'required'
+            'password' => 'required',
+            'no_pegawai' => 'required|string|max:50',
+            'departemen' => 'required|string|max:50',
+            'no_hp' => 'required|string|max:50',
         ];
 
     }
