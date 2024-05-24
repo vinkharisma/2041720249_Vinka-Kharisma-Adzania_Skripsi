@@ -6,7 +6,7 @@
         <div class="section-header">
             <h1>User List</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
@@ -96,14 +96,15 @@
                                                         <a href="{{ route('user.edit', $user->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
-                                                            Edit</a>
+                                                            Edit
+                                                        </a>
                                                         <form action="{{ route('user.destroy', $user->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete </button>
+                                                                <i class="fas fa-times"></i> Delete
+                                                            </button>
                                                         </form>
                                                     </div>
                                                 </td>
@@ -122,6 +123,7 @@
         </div>
     </section>
 @endsection
+
 @push('customScript')
     <script>
         $(document).ready(function() {
