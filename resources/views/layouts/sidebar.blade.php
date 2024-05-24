@@ -3,7 +3,7 @@
         <a href="index.html">Stisla</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">LOGO</a>
+        <a href="/dashboard">LOGO</a>
     </div>
     <ul class="sidebar-menu">
 
@@ -54,13 +54,13 @@
         </li>
 
         <!--Prediction Management-->
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chart-line"></i>
                 <span>Prediction Management</span></a>
             <ul class="dropdown-menu">
                 <li><a class="nav-link " href="{{ route('prediction.index') }}">Prediction Form</a></li>
             </ul>
-        </li>
+        </li> --}}
 
     </ul>
 </aside>
