@@ -58,7 +58,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Roles</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($users as $key => $user)
                                             <tr>
@@ -66,8 +66,9 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ implode(', ', $user->getRoleNames()->toArray()) }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+                                                
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('assign.user.edit', $user->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>

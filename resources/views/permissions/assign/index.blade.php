@@ -56,7 +56,7 @@
                                             <th>Name</th>
                                             <th>Guard Name</th>
                                             <th>Permission</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($roles as $key => $role)
                                             <tr>
@@ -64,8 +64,9 @@
                                                 <td>{{ $role->name }}</td>
                                                 <td>{{ $role->guard_name }}</td>
                                                 <td>{{ implode(', ', $role->getPermissionNames()->toArray()) }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('assign.edit', $role->id) }}"
                                                             class="btn btn-sm btn-info btn-icon"><i class="fas fa-edit"></i>
                                                             Edit</a>

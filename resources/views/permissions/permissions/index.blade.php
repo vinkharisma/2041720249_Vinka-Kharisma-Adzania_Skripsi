@@ -77,7 +77,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Guard Name</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($permissions as $key => $permission)
                                             <tr>
@@ -85,8 +85,9 @@
                                                 </td>
                                                 <td>{{ $permission->name }}</td>
                                                 <td>{{ $permission->guard_name }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('permission.edit', $permission->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>

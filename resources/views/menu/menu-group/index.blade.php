@@ -73,15 +73,16 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Permission</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($menuGroups as $key => $item)
                                             <tr>
                                                 <td>{{ $menuGroups->firstItem() + $key }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->permission_name }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('menu-group.edit', $item->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>

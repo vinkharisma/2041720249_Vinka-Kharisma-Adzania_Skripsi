@@ -77,7 +77,7 @@
                                             <th>Name</th>
                                             <th>Url</th>
                                             <th>Permission</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($menuItems as $key => $menuItem)
                                             <tr>
@@ -86,8 +86,9 @@
                                                 <td>{{ $menuItem->name }}</td>
                                                 <td>{{ $menuItem->route }}</td>
                                                 <td>{{ $menuItem->permission_name }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+                                                
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('menu-item.edit', $menuItem->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>

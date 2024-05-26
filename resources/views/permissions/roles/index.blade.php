@@ -75,15 +75,16 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Guard Name</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($roles as $key => $role)
                                             <tr>
                                                 <td>{{ $roles->firstItem() + $key }}</td>
                                                 <td>{{ $role->name }}</td>
                                                 <td>{{ $role->guard_name }}</td>
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('role.edit', $role->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>

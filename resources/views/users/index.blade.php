@@ -77,7 +77,7 @@
                                             <th>Departemen</th>
                                             <th>No HP</th>
                                             <th>Created At</th>
-                                            <th class="text-right">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
 
                                         @foreach ($users as $key => $user)
@@ -90,8 +90,8 @@
                                                 <td>{{ $user->no_hp }}</td>
                                                 <td>{{ $user->created_at }}</td>
 
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('user.edit', $user->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
