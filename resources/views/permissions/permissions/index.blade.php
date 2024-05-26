@@ -57,16 +57,17 @@
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('permission.index') }}">
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-10">
                                             <label for="role">Role</label>
-                                            <input type="text" name="name" class="form-control" id="name"
+                                            <input style="width: 1032px" type="text" name="name" class="form-control" id="name"
                                                 placeholder="Role Name">
                                         </div>
+                                        <div class="text-right" style="padding-top: 30px">
+                                            <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                            <a class="btn btn-secondary" href="{{ route('permission.index') }}">Reset</a>
+                                        </div>
                                     </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="{{ route('permission.index') }}">Reset</a>
-                                    </div>
+
                                 </form>
                             </div>
                             <div class="table-responsive">

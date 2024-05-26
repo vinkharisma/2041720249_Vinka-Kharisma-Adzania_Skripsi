@@ -27,21 +27,24 @@
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('assign.create') }}">Assign
                                     Permission To Role</a>
+                                {{-- <a class="btn btn-info btn-primary active search">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    Search Permission</a> --}}
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('assign.index') }}">
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-10">
                                             <label for="role">Role</label>
-                                            <input type="text" name="name" class="form-control" id="name"
+                                            <input style="width: 1032px" type="text" name="name" class="form-control" id="name"
                                                 placeholder="Role Name">
                                         </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="{{ route('assign.index') }}">Reset</a>
+                                        <div class="text-right" style="padding-top: 30px">
+                                            <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                            <a class="btn btn-secondary" href="{{ route('assign.index') }}">Reset</a>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
