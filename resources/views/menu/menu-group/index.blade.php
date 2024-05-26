@@ -70,7 +70,7 @@
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Permission</th>
                                             <th class="text-right">Action</th>

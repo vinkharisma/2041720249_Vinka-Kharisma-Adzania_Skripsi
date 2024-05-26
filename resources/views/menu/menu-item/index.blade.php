@@ -72,7 +72,7 @@
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
+                                            <th>ID</th>
                                             <th>Parent</th>
                                             <th>Name</th>
                                             <th>Url</th>
