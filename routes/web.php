@@ -48,6 +48,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('demo', DemoController::class)->name('user.demo');
     });
 
+    // Profile
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile.index');
+    // Route::put('/dashboard/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+
     // Role Management
     Route::group(['prefix' => 'role-and-permission'], function () {
         // Role List
@@ -89,11 +93,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('data', DataController::class);
         Route::post('import', [DataController::class, 'import'])->name('data.import');
         Route::get('export', [DataController::class, 'export'])->name('data.export');
-        Route::get('demo', DemoController::class)->name('user.demo');
     });
 
     // Prediction Management
-    Route::resource('prediction', PredictionController::class);
+    // Route::resource('prediction', PredictionController::class);
 
     // // Test
     // Route::prefix('prediction-management')->group(function () {

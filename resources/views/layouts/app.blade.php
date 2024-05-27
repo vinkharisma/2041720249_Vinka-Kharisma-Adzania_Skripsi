@@ -119,16 +119,20 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <a href="features-profile.html" class="dropdown-item has-icon">
+                            {{-- Profile --}}
+                            <a href="{{ route('profile.index') }}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
+                            {{-- Activities --}}
                             <a href="features-activities.html" class="dropdown-item has-icon">
                                 <i class="fas fa-bolt"></i> Activities
                             </a>
+                            {{-- About --}}
                             <a href="features-settings.html" class="dropdown-item has-icon">
-                                <i class="fas fa-cog"></i> Settings
+                                <i class="fas fa-cog"></i> About
                             </a>
                             <div class="dropdown-divider"></div>
+                            {{-- Logout --}}
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 class="dropdown-item has-icon text-danger">
