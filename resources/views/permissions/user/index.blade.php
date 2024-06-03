@@ -26,8 +26,7 @@
                             <h4>List User Assigned To Role</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
-                                    href="{{ route('assign.user.create') }}">Assign
-                                    User To Role</a>
+                                    href="{{ route('assign.user.create') }}">Create Assign User To Role</a>
                                 {{-- <a class="btn btn-info btn-primary active search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search User To Role</a> --}}
@@ -66,7 +65,7 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ implode(', ', $user->getRoleNames()->toArray()) }}</td>
-                                                
+
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">
                                                         <a href="{{ route('assign.user.edit', $user->id) }}"

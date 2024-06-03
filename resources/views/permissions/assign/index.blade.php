@@ -25,8 +25,7 @@
                         <div class="card-header">
                             <h4>List Role Assigned To Permission</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('assign.create') }}">Assign
-                                    Permission To Role</a>
+                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('assign.create') }}"> Create Assign Permission To Role</a>
                                 {{-- <a class="btn btn-info btn-primary active search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search Permission</a> --}}
