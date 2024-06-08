@@ -1,4 +1,4 @@
-describe('Users Management', () => {
+describe('PPIC - Users Management', () => {
     it('PPIC can open the user page', () => {
         cy.visit('http://localhost:8000/login')
 
@@ -12,7 +12,32 @@ describe('Users Management', () => {
         cy.get('a').contains('User List').click()
         cy.url().should('contain', 'http://localhost:8000/user-management/user')
     })
+})
 
+describe('PPIC - Search User List', () => {
+    it('PPIC can search the user', () => {
+        cy.visit('http://localhost:8000/login')
+
+        cy.get('input[name=email]').type('superadmin@gmail.com')
+        cy.get('input[name=password]').type('password')
+        cy.get('button').contains('Login').click()
+        cy.url().should('contain', 'http://localhost:8000/dashboard')
+
+        cy.get('.form-inline > .navbar-nav > :nth-child(1) > .nav-link').click()
+        cy.get('a').contains('Users Management').click()
+        cy.get('a').contains('User List').click()
+        cy.url().should('contain', 'http://localhost:8000/user-management/user')
+
+        cy.get('a').contains('Search User').click()
+        cy.url().should('contain', 'http://localhost:8000/user-management/user')
+
+        cy.get('input[name=name]').type('Vice')
+
+        cy.get('button').contains('Submit').click()
+    })
+})
+
+describe('PPIC - CRUD User List', () => {
     it('PPIC can create a user', () => {
         cy.visit('http://localhost:8000/login')
 
@@ -81,14 +106,32 @@ describe('Users Management', () => {
         cy.get('a').contains('User List').click()
         cy.url().should('contain', 'http://localhost:8000/user-management/user')
 
-        cy.get(':nth-child(5) > .text-center > .d-flex > .ml-2 > .btn').click()
+        cy.get('button').contains('Delete').click()
         cy.get('button').contains('OK').click()
     })
+})
 
-    it('PPIC can search the user', () => {
+describe('VP - Users Management', () => {
+    it('VP can open the user page', () => {
         cy.visit('http://localhost:8000/login')
 
-        cy.get('input[name=email]').type('superadmin@gmail.com')
+        cy.get('input[name=email]').type('user@gmail.com')
+        cy.get('input[name=password]').type('password')
+        cy.get('button').contains('Login').click()
+        cy.url().should('contain', 'http://localhost:8000/dashboard')
+
+        cy.get('.form-inline > .navbar-nav > :nth-child(1) > .nav-link').click()
+        cy.get('a').contains('Users Management').click()
+        cy.get('a').contains('User List').click()
+        cy.url().should('contain', 'http://localhost:8000/user-management/user')
+    })
+})
+
+describe('VP - Search User List', () => {
+    it('VP can search the user', () => {
+        cy.visit('http://localhost:8000/login')
+
+        cy.get('input[name=email]').type('user@gmail.com')
         cy.get('input[name=password]').type('password')
         cy.get('button').contains('Login').click()
         cy.url().should('contain', 'http://localhost:8000/dashboard')
@@ -105,21 +148,9 @@ describe('Users Management', () => {
 
         cy.get('button').contains('Submit').click()
     })
+})
 
-    it('VP can open the user page', () => {
-        cy.visit('http://localhost:8000/login')
-
-        cy.get('input[name=email]').type('user@gmail.com')
-        cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
-        cy.url().should('contain', 'http://localhost:8000/dashboard')
-
-        cy.get('.form-inline > .navbar-nav > :nth-child(1) > .nav-link').click()
-        cy.get('a').contains('Users Management').click()
-        cy.get('a').contains('User List').click()
-        cy.url().should('contain', 'http://localhost:8000/user-management/user')
-    })
-
+describe('VP - CRUD User List', () => {
     it('VP can create a user', () => {
         cy.visit('http://localhost:8000/login')
 
@@ -188,28 +219,7 @@ describe('Users Management', () => {
         cy.get('a').contains('User List').click()
         cy.url().should('contain', 'http://localhost:8000/user-management/user')
 
-        cy.get(':nth-child(5) > .text-center > .d-flex > .ml-2 > .btn').click()
+        cy.get('button').contains('Delete').click()
         cy.get('button').contains('OK').click()
-    })
-
-    it('VP can search the user', () => {
-        cy.visit('http://localhost:8000/login')
-
-        cy.get('input[name=email]').type('user@gmail.com')
-        cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
-        cy.url().should('contain', 'http://localhost:8000/dashboard')
-
-        cy.get('.form-inline > .navbar-nav > :nth-child(1) > .nav-link').click()
-        cy.get('a').contains('Users Management').click()
-        cy.get('a').contains('User List').click()
-        cy.url().should('contain', 'http://localhost:8000/user-management/user')
-
-        cy.get('a').contains('Search User').click()
-        cy.url().should('contain', 'http://localhost:8000/user-management/user')
-
-        cy.get('input[name=name]').type('Vice')
-
-        cy.get('button').contains('Submit').click()
     })
 })
