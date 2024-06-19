@@ -25,9 +25,8 @@
                         <div class="card-header">
                             <h4>Menu Item List</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('menu-item.create') }}">Create
-                                    New
-                                    Menu Item</a>
+                                {{-- <a class="btn btn-icon icon-left btn-primary" href="{{ route('menu-item.create') }}">Create
+                                    New Menu Item</a> --}}
                                 {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Import Menu Item</a>
@@ -86,13 +85,13 @@
                                                 <td>{{ $menuItem->name }}</td>
                                                 <td>{{ $menuItem->route }}</td>
                                                 <td>{{ $menuItem->permission_name }}</td>
-                                                
+
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="{{ route('menu-item.edit', $menuItem->id) }}"
+                                                        {{-- <a href="{{ route('menu-item.edit', $menuItem->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
-                                                            Edit</a>
+                                                            Edit</a> --}}
                                                         <form action="{{ route('menu-item.destroy', $menuItem->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">

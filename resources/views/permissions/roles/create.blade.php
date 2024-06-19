@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Roles and Permission</h1>
+            <h1>Role and Permission</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -11,10 +11,10 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Create Roles</h2>
+            <h2 class="section-title">Create Role</h2>
             <div class="card">
                 <div class="card-header">
-                    <h4>Form Create Role</h4>
+                    <h4>Create Role Form</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('role.store') }}" method="post">

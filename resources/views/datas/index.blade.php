@@ -4,9 +4,9 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Data Table List</h1>
+            <h1>Stok Data List</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Data Table List</h4>
+                            <h4>Pallet Stock Data Table</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('data.create') }}">Create New
                                     Data</a>
@@ -39,39 +39,42 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="show-import" style="display: none">
+                            <div class="show-import mb-4" style="display: none">
                                 <div class="custom-file">
                                     <form action="{{ route('data.import') }}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-                                        <label class="custom-file-label" for="file-upload">Choose File</label>
-                                        <input type="file" id="file-upload" class="custom-file-input" name="import_file">
-                                        <br /> <br />
-                                        <div class="footer text-right">
-                                            <button class="btn btn-primary">Import File</button>
+                                        <div class="form-row" style="margin-left: 0px; margin-right: 0px;">
+                                            <div class="form-group col-md-10">
+                                                <label style="width: 1126px" class="custom-file-label" for="file-upload">Choose File</label>
+                                                <input style="width: 1050px" type="file" id="file-upload" class="custom-file-input" name="file" required="required" accept=".xlsx,.xls">
+                                            </div>
+                                                <div style="padding-left: 90px; padding-top: 4px;" class="footer text-right">
+                                                    <button class="btn btn-primary">Import File</button>
+                                                </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('data.index') }}">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
+                                    <div class="form-row" style="padding-left: 5px;">
+                                        <div class="form-group col-md-10" style="padding-left: 0px; padding-right: 0px;">
                                             <label for="role">Data</label>
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="Data Name">
+                                            <input style="width: 1032px" type="text" name="name" class="form-control" id="name" placeholder="Data Name">
+                                        </div>
+                                        <div class="text-right" style="padding-top: 30px">
+                                            <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                            <a class="btn btn-secondary" href="{{ route('data.index') }}">Reset</a>
                                         </div>
                                     </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="{{ route('data.index') }}">Reset</a>
-                                    </div>
+
                                 </form>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>#</th>
+                                            <th>ID</th>
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
                                             <th>Stok Awal</th>
@@ -80,25 +83,25 @@
                                             <th>Stok Akhir</th>
                                             <th>Jumlah Stok Palet Baik</th>
                                             <th>Jumlah Stok Palet Rusak</th>
-                                            <th>Created At</th>
-                                            <th class="text-right">Action</th>
+                                            {{-- <th>Created At</th> --}}
+                                            <th class="text-center">Action</th>
                                         </tr>
 
                                         @foreach ($datas as $key => $data)
                                             <tr>
                                                 <td>{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
                                                 <td>{{ $data->tanggal }}</td>
-                                                <td>{{ $data->keterangan }}</td>
+                                                <td>{{ $data->name }}</td>
                                                 <td>{{ $data->stok_awal }}</td>
                                                 <td>{{ $data->masuk }}</td>
                                                 <td>{{ $data->keluar }}</td>
                                                 <td>{{ $data->stok_akhir }}</td>
                                                 <td>{{ $data->jumlah_stok_palet_baik }}</td>
                                                 <td>{{ $data->jumlah_stok_palet_rusak}}</td>
-                                                <td>{{ $data->created_at}}</td>
+                                                {{-- <td>{{ $data->created_at}}</td> --}}
 
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
                                                         <a href="{{ route('data.edit', $data->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
@@ -107,11 +110,9 @@
                                                         <form action="{{ route('data.destroy', $data->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}"
-                                                            >
-                                                            <button class="btn btn-sm btn-danger btn-icon "><i
-                                                                class="fas fa-times"></i> Delete
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                <i class="fas fa-times"></i> Delete
                                                             </button>
                                                         </form>
                                                     </div>
@@ -131,6 +132,7 @@
         </div>
     </section>
 @endsection
+
 @push('customScript')
     <script>
         $(document).ready(function() {

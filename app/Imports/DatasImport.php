@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Data;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class DatasImport implements ToModel
@@ -15,7 +16,14 @@ class DatasImport implements ToModel
     public function model(array $row)
     {
         return new Data([
-            //
+            'tanggal'                   => Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[1])),
+            'name'                      => $row[2],
+            'stok_awal'                 => $row[3],
+            'masuk'                     => $row[4],
+            'keluar'                    => $row[5],
+            'stok_akhir'                => $row[6],
+            'jumlah_stok_palet_baik'    => $row[7],
+            'jumlah_stok_palet_rusak'   => $row[8],
         ]);
     }
 }

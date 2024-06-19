@@ -91,8 +91,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Route::resource('data', DataController::class);
     Route::prefix('data-management')->group(function () {
         Route::resource('data', DataController::class);
-        Route::post('import', [DataController::class, 'import'])->name('data.import');
         Route::get('export', [DataController::class, 'export'])->name('data.export');
+        Route::post('import', [DataController::class, 'import'])->name('data.import');
     });
 
     // Prediction Management

@@ -28,6 +28,14 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'data.management']);
         Permission::create(['name' => 'prediction.management']);
 
+        // Data
+        Permission::create(['name' => 'data.index']);
+        Permission::create(['name' => 'data.create']);
+        Permission::create(['name' => 'data.edit']);
+        Permission::create(['name' => 'data.destroy']);
+        Permission::create(['name' => 'data.import']);
+        Permission::create(['name' => 'data.export']);
+
         // User
         Permission::create(['name' => 'user.index']);
         Permission::create(['name' => 'user.create']);
@@ -75,14 +83,6 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'menu-item.edit']);
         Permission::create(['name' => 'menu-item.destroy']);
 
-        // Data
-        Permission::create(['name' => 'data.index']);
-        Permission::create(['name' => 'data.create']);
-        Permission::create(['name' => 'data.edit']);
-        Permission::create(['name' => 'data.destroy']);
-        Permission::create(['name' => 'data.import']);
-        Permission::create(['name' => 'data.export']);
-
         // Prediction
         Permission::create(['name' => 'prediction.index']);
         Permission::create(['name' => 'prediction.create']);
@@ -91,24 +91,42 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'prediction.import']);
         Permission::create(['name' => 'prediction.export']);
 
-        // Create Roles
+        // Create Roles Super Admin (PPIC)
+        $role = Role::create(['name' => 'super-admin']);
+        $role->givePermissionTo(Permission::all());
+
+        // Create Roles User (VP)
         $roleUser = Role::create(['name' => 'user']);
         $roleUser->givePermissionTo([
             'dashboard',
             'user.management',
             'user.index',
+            'user.create',
+            'user.edit',
+            'user.destroy',
+            'user.export',
+            'data.management',
+            'data.index',
+            'data.create',
+            'data.edit',
+            'data.destroy',
+            'data.export',
         ]);
 
-        // Create Super Admin
-        $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        // Create Admin
+        $roleAdmin = Role::create(['name' => 'admin']);
+        $roleAdmin->givePermissionTo([
+            'dashboard',
+            'data.management',
+            'data.index'
+        ]);
 
         // Assign user id 1 ke Super Admin
         $user = User::find(1);
         $user->assignRole('super-admin');
         $user = User::find(2);
         $user->assignRole('user');
-        // $user = User::find(3);
-        // $user->assignRole('admin');
+        $user = User::find(3);
+        $user->assignRole('admin');
     }
 }

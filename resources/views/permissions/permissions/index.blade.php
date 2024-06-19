@@ -4,7 +4,7 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Roles and Permissions</h1>
+            <h1>Role and Permission</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -28,9 +28,9 @@
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('permission.create') }}">Create
                                     New
                                     Permission</a>
-                                <a class="btn btn-info btn-primary active import">
+                                {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
-                                    Import Permission</a>
+                                    Import Permission</a> --}}
                                 <a class="btn btn-info btn-primary active" href="{{ route('permission.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     Export Permission</a>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDataRequest extends FormRequest
+class UpdateMenuItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,11 @@ class StoreDataRequest extends FormRequest
     public function rules()
     {
         return [
-            'tanggal' => 'required|date_format:Y-m-d',
-            'name' => 'required|string',
-            'stok_awal' => 'required|string',
-            'masuk' => 'required|string',
-            'keluar' => 'required|string',
-            'stok_akhir' => 'required|string',
-            'jumlah_stok_palet_baik' => 'required|string',
-            'jumlah_stok_palet_rusak' => 'required|string',
+            //
+            'name' => 'required|unique:menu_items',
+            'route' => 'required|unique:menu_items',
+            'permission_name' => 'required',
+            'menu_group_id' => 'required|exists:menu_groups,id'
         ];
     }
 }

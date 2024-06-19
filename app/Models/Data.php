@@ -9,14 +9,21 @@ class Data extends Model
 {
     use HasFactory;
 
+    protected $table = 'datas';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'tanggal',
-        'keterangan',
+        'name',
         'stok_awal',
         'masuk',
         'keluar',
         'stok_akhir',
         'jumlah_stok_palet_baik',
-        'jumlah_stok_palet_rusak'
+        'jumlah_stok_palet_rusak',
     ];
 }

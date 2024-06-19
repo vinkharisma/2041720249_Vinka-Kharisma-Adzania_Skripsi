@@ -4,47 +4,23 @@
 
     <section class="section">
         <div class="section-header">
-            <h1>Table</h1>
+            <h1>Stok Data List</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Edit Data</h2>
+            <h2 class="section-title">Edit Pallet Stock Data</h2>
             <div class="card">
                 <form action="{{ route('data.update', $data) }}" method="POST">
                     <div class="card-header">
-                        <h4>Validasi Edit Data</h4>
+                        <h4>Edit Pallet Stock Data Form</h4>
                     </div>
                     <div class="card-body">
                         @csrf
                         @method('PUT')
-
-                        {{-- Your Name --}}
-                        {{-- <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                name="name" value="{{ $data->name }}">
-                            @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}
-
-                        {{-- Email --}}
-                        {{-- <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
-                                name="email" value="{{ $data->email }}">
-                            @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}
 
                         {{-- Tanggal --}}
                         <div class="form-group">
@@ -60,10 +36,10 @@
 
                         {{-- Keterangan --}}
                         <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
-                                name="keterangan" value="{{ $data->keterangan }}">
-                            @error('keterangan')
+                            <label for="name">Keterangan</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                name="name" value="{{ $data->name }}">
+                            @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

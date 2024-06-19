@@ -4,7 +4,7 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Roles and Permission</h1>
+            <h1>Role and Permission</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -25,7 +25,7 @@
                         <div class="card-header">
                             <h4>List Role Assigned To Permission</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('assign.create') }}"> Create Assign Permission To Role</a>
+                                {{-- <a class="btn btn-icon icon-left btn-primary" href="{{ route('assign.create') }}"> Create Assign Permission To Role</a> --}}
                                 {{-- <a class="btn btn-info btn-primary active search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search Permission</a> --}}
@@ -55,7 +55,7 @@
                                             <th>Name</th>
                                             <th>Guard Name</th>
                                             <th>Permission</th>
-                                            <th class="text-center">Action</th>
+                                            {{-- <th class="text-center">Action</th> --}}
                                         </tr>
                                         @foreach ($roles as $key => $role)
                                             <tr>
@@ -64,13 +64,13 @@
                                                 <td>{{ $role->guard_name }}</td>
                                                 <td>{{ implode(', ', $role->getPermissionNames()->toArray()) }}</td>
 
-                                                <td class="text-center">
+                                                {{-- <td class="text-center">
                                                     <div class="d-flex justify-content-center">
                                                         <a href="{{ route('assign.edit', $role->id) }}"
                                                             class="btn btn-sm btn-info btn-icon"><i class="fas fa-edit"></i>
                                                             Edit</a>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>

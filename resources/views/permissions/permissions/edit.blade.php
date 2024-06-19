@@ -4,7 +4,7 @@
 
     <section class="section">
         <div class="section-header">
-            <h1>Roles and Permission Management</h1>
+            <h1>Role and Permission</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,11 +12,11 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Permission Edit</h2>
+            <h2 class="section-title">Edit Permission</h2>
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Permission Edit Form</h4>
+                    <h4>Edit Permission Form</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('permission.update', $permission->id) }}" method="POST">

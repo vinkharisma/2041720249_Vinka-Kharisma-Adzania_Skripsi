@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/components.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 
 <body class="sidebar-mini">
@@ -209,7 +210,7 @@
                 </ul>
             </nav>
             <div class="main-sidebar">
-                <x-sidebar title="LOGO" />
+                <x-sidebar title="PREDICTION" />
                 {{-- @include('layouts.sidebar') --}}
             </div>
 
@@ -246,6 +247,9 @@
 
     <!-- Page Specific JS File -->
     @stack('customScript')
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 
 </html>

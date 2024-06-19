@@ -4,25 +4,24 @@
 
     <section class="section">
         <div class="section-header">
-            <h1>Table</h1>
+            <h1>Stok Data List</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Tambah Data</h2>
+            <h2 class="section-title">Create Pallet Stock Data</h2>
             <div class="card">
                 <div class="card-header">
-                    <h4>Validasi Tambah Data</h4>
+                    <h4>Create Pallet Stock Data Form</h4>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form action="{{ route('data.store') }}" method="post">
-                                @csrf
-
+                    <form action="{{ route('data.store') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
                                 {{-- Tanggal --}}
                                 <div class="form-group">
                                     <label for="tanggal">Tanggal</label>
@@ -37,10 +36,10 @@
 
                                 {{-- Keterangan --}}
                                 <div class="form-group">
-                                    <label for="keterangan">Keterangan</label>
-                                    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
-                                        name="keterangan" placeholder="Enter Keterangan">
-                                    @error('keterangan')
+                                    <label for="name">Keterangan</label>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                        name="name" placeholder="Enter Keterangan">
+                                    @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -121,12 +120,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer text-right">
-                        <button class="btn btn-primary">Submit</button>
-                        <a class="btn btn-secondary" href="{{ route('data.index') }}">Cancel</a>
-                    </div>
-                </form>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                            <a class="btn btn-secondary" href="{{ route('data.index') }}">Cancel</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

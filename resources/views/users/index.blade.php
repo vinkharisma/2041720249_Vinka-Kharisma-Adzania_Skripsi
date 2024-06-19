@@ -23,13 +23,13 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>User List</h4>
+                            <h4>User Data Table</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('user.create') }}">Create New
                                     User</a>
-                                <a class="btn btn-info btn-primary active import">
+                                {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
-                                    Import User</a>
+                                    Import User</a> --}}
                                 <a class="btn btn-info btn-primary active" href="{{ route('user.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     Export User</a>
@@ -39,19 +39,23 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="show-import" style="display: none">
+                            <div class="show-import mb-4" style="display: none">
                                 <div class="custom-file">
                                     <form action="{{ route('user.import') }}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-                                        <label class="custom-file-label" for="file-upload">Choose File</label>
-                                        <input type="file" id="file-upload" class="custom-file-input" name="import_file">
-                                        <br /> <br />
-                                        <div class="footer text-right">
-                                            <button class="btn btn-primary">Import File</button>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-10">
+                                                <label class="custom-file-label" for="file-upload">Choose File</label>
+                                                <input type="file" id="file-upload" class="custom-file-input" name="import_file">
+                                            </div>
+                                            <div class="form-group col-md-2 text-center">
+                                                <button class="btn btn-primary" style="padding-top: 7.5px; padding-bottom: 7.5px;">Import File</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('user.index') }}">
                                     <div class="form-row">
@@ -76,7 +80,7 @@
                                             <th>No Pegawai</th>
                                             <th>Departemen</th>
                                             <th>No HP</th>
-                                            <th>Created At</th>
+                                            {{-- <th>Created At</th> --}}
                                             <th class="text-center">Action</th>
                                         </tr>
 
@@ -88,7 +92,7 @@
                                                 <td>{{ $user->no_pegawai }}</td>
                                                 <td>{{ $user->departemen }}</td>
                                                 <td>{{ $user->no_hp }}</td>
-                                                <td>{{ $user->created_at }}</td>
+                                                {{-- <td>{{ $user->created_at }}</td> --}}
 
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">

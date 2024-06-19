@@ -25,8 +25,8 @@
                         <div class="card-header">
                             <h4>Menu Group List</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('menu-group.create') }}">Create
-                                    New Menu Group</a>
+                                {{-- <a class="btn btn-icon icon-left btn-primary" href="{{ route('menu-group.create') }}">Create
+                                    New Menu Group</a> --}}
                                 {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Import dataName</a> --}}

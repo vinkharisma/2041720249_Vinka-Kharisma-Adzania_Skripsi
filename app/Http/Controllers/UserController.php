@@ -11,8 +11,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -86,7 +87,7 @@ class UserController extends Controller
             'departemen' => $request['departemen'],
             'no_hp' => $request['no_hp'],
         ]);
-        return redirect(route('user.index'))->with('success', 'Data Added Successfully');;
+        return redirect(route('user.index'))->with('success', 'User Added Successfully');;
     }
 
     /**
@@ -155,12 +156,29 @@ class UserController extends Controller
             User::where('id', $user[0])->update([
                 'name' => $user[1],
                 'email' => $user[2],
-                'password' => $user[3],
-                'no_pegawai' => $user[7],
-                'departemen' => $user[8],
-                'no_hp' => $user[9],
+                'password' => $user[4],
+                'no_pegawai' => $user[8],
+                'departemen' => $user[9],
+                'no_hp' => $user[10],
             ]);
         }
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'Users Imported Successfully');
     }
+
+    public function profile()
+    {
+        return view('profiles.index', [
+            'user' => Auth::user(),
+        ]);
+    }
+
+    // public function updateProfile(Request $request)
+    // {
+    //     $user = Auth::user();
+    //     $user->update($request->all());
+
+    //     return redirect()->route('profile.index')->with('success', 'Profile updated successfully');
+    // }
+
+
 }

@@ -21,8 +21,15 @@ class MenuGroupSeeder extends Seeder
                 // Dashboard
                 [
                     'name' => 'Dashboard',
-                    'icon' => 'fas fa-tachometer-alt',
+                    // 'icon' => 'fas fa-tachometer-alt',
+                    'icon' => 'fas fa-chart-line',
                     'permission_name' => 'dashboard',
+                ],
+                // Data Management
+                [
+                    'name' => 'Data Management',
+                    'icon' => 'fas fa-table',
+                    'permisison_name' => 'data.management',
                 ],
                 // Users Management
                 [
@@ -42,18 +49,13 @@ class MenuGroupSeeder extends Seeder
                     'icon' => 'fas fa-bars',
                     'permisison_name' => 'menu.management',
                 ],
-                // Data Management
-                [
-                    'name' => 'Data Management',
-                    'icon' => 'fas fa-table',
-                    'permisison_name' => 'data.management',
-                ],
+
                 // Prediction Management
-                [
-                    'name' => 'Prediction Management',
-                    'icon' => 'fas fa-chart-line',
-                    'permisison_name' => 'prediction.management',
-                ],
+                // [
+                //     'name' => 'Prediction Management',
+                //     'icon' => 'fas fa-chart-line',
+                //     'permisison_name' => 'prediction.management',
+                // ],
             ]
         );
     }

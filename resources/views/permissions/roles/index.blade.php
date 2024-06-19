@@ -23,13 +23,13 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Roles List</h4>
+                            <h4>Role List</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary" href="{{ route('role.create') }}">Create New
                                     Role</a>
-                                <a class="btn btn-info btn-primary active import">
+                                {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
-                                    Import Role</a>
+                                    Import Role</a> --}}
                                 <a class="btn btn-info btn-primary active" href="{{ route('role.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     Export Role</a>

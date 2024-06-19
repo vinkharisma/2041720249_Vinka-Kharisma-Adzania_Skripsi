@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -33,5 +34,5 @@ Route::group(
         Route::post('/auth/logout', [AuthController::class, 'logout']);
     }
 );
-Route::apiResource('/category', CategoryController::class);
 
+Route::apiResource('/category', CategoryController::class);
