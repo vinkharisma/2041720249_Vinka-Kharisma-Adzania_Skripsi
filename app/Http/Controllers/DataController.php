@@ -9,6 +9,7 @@ use App\Imports\DatasImport;
 use App\Models\Category;
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -36,9 +37,8 @@ class DataController extends Controller
         // ]);
 
         // Mengambil data
-        $datas = DB::table('datas')
-            ->when($request->input('tanggal'), function ($query, $tanggal) {
-                return $query->where('tanggal', 'like', '%' . $tanggal . '%');
+        $datas = Data::when($request->input('tanggal'), function ($query, $tanggal) {
+            return $query->where('tanggal', 'like', '%' . $tanggal . '%');
             })
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
@@ -62,8 +62,8 @@ class DataController extends Controller
                 return $query->where('jumlah_stok_palet_rusak', 'like', '%' . $jumlah_stok_palet_rusak . '%');
             })
             ->select('id', DB::raw("DATE_FORMAT(tanggal, '%d %M %Y') as tanggal"), 'name', 'stok_awal', 'masuk', 'keluar', 'stok_akhir', 'jumlah_stok_palet_baik', 'jumlah_stok_palet_rusak', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
-            ->paginate(10);
-        return view('datas.index', compact('datas'));
+            ->paginate();
+        return view('datas.data.index', compact('datas'));
     }
 
     /**
@@ -74,7 +74,7 @@ class DataController extends Controller
     public function create()
     {
         // Halaman tambah data
-        return view('datas.create');
+        return view('datas.data.create');
     }
 
     /**
@@ -173,7 +173,7 @@ class DataController extends Controller
      */
     public function edit(Data $data)
     {
-        return view('datas.edit')
+        return view('datas.data.edit')
             ->with('data', $data);
     }
 
@@ -241,4 +241,357 @@ class DataController extends Controller
         Excel::import(new DatasImport, public_path('/data/'.$namaFile));
         return redirect()->route('data.index')->with('success', 'Datas Imported Successfully');
     }
+
+    // public function prediction()
+    // {
+    //     $datas = Data::all(); // Fetch all necessary data for prediction
+
+    //     // Calculate statistics
+    //     $stok_akhir = $datas->pluck('stok_akhir')->toArray();
+    //     $count = count($stok_akhir);
+    //     $mean = $count > 0 ? array_sum($stok_akhir) / $count : 0;
+    //     $std = $count > 1 ? sqrt(array_sum(array_map(function ($x) use ($mean) { return pow($x - $mean, 2); }, $stok_akhir)) / ($count - 1)) : 0;
+    //     sort($stok_akhir);
+    //     $min = reset($stok_akhir);
+    //     $max = end($stok_akhir);
+    //     $percentiles = [
+    //         '25th_percentile' => $stok_akhir[floor(0.25 * ($count + 1)) - 1],
+    //         'median' => $stok_akhir[floor(0.5 * ($count + 1)) - 1],
+    //         '75th_percentile' => $stok_akhir[floor(0.75 * ($count + 1)) - 1],
+    //     ];
+
+    //     // Pass statistics to the view
+    //     $stats = [
+    //         'count' => $count,
+    //         'mean' => $mean,
+    //         'std' => $std,
+    //         'min' => $min,
+    //         '25th_percentile' => $percentiles['25th_percentile'],
+    //         'median' => $percentiles['median'],
+    //         '75th_percentile' => $percentiles['75th_percentile'],
+    //         'max' => $max,
+    //     ];
+
+    //     return view('predictions.index', compact('stats'));
+    // }
+
+    // public function prediction()
+    // {
+    //     // Ambil semua data yang diperlukan untuk prediksi
+    //     $datas = Data::all();
+
+    //     // Hitung ACF sampai lag 30
+    //     $stok_akhir = $datas->pluck('stok_akhir')->toArray();
+    //     $acf = $this->calculateACF($stok_akhir, 30);
+
+    //     // Hitung statistik (count, mean, std, dll.)
+    //     $count = count($stok_akhir);
+    //     $mean = $count > 0 ? array_sum($stok_akhir) / $count : 0;
+    //     $std = $count > 1 ? sqrt(array_sum(array_map(function ($x) use ($mean) { return pow($x - $mean, 2); }, $stok_akhir)) / ($count - 1)) : 0;
+    //     sort($stok_akhir);
+    //     $min = reset($stok_akhir);
+    //     $max = end($stok_akhir);
+    //     $percentiles = [
+    //         '25th_percentile' => $stok_akhir[floor(0.25 * ($count + 1)) - 1],
+    //         'median' => $stok_akhir[floor(0.5 * ($count + 1)) - 1],
+    //         '75th_percentile' => $stok_akhir[floor(0.75 * ($count + 1)) - 1],
+    //     ];
+
+    //     // Kirim statistik dan ACF ke view
+    //     $stats = [
+    //         'count' => $count,
+    //         'mean' => $mean,
+    //         'std' => $std,
+    //         'min' => $min,
+    //         '25th_percentile' => $percentiles['25th_percentile'],
+    //         'median' => $percentiles['median'],
+    //         '75th_percentile' => $percentiles['75th_percentile'],
+    //         'max' => $max,
+    //     ];
+
+    //     return view('predictions.index', compact('stats', 'acf'));
+    // }
+
+    // // Fungsi untuk menghitung ACF
+    // private function calculateACF($data, $maxlag)
+    // {
+    //     $acf = [];
+
+    //     for ($lag = 1; $lag <= $maxlag; $lag++) {
+    //         $acf[] = $this->autocorrelation($data, $lag);
+    //     }
+
+    //     return $acf;
+    // }
+
+    // // Fungsi untuk menghitung autocorrelation
+    // private function autocorrelation($data, $lag)
+    // {
+    //     $n = count($data);
+    //     $mean = array_sum($data) / $n;
+    //     $numerator = 0;
+    //     $denominator = 0;
+
+    //     for ($i = 0; $i < $n - $lag; $i++) {
+    //         $numerator += ($data[$i] - $mean) * ($data[$i + $lag] - $mean);
+    //     }
+
+    //     for ($i = 0; $i < $n; $i++) {
+    //         $denominator += pow($data[$i] - $mean, 2);
+    //     }
+
+    //     return $numerator / $denominator;
+    // }
+
+    // public function prediction()
+    // {
+    //     // Ambil semua data yang diperlukan untuk prediksi
+    //     $datas = Data::all();
+
+    //     // Hitung ACF sampai lag 30
+    //     $stok_akhir = $datas->pluck('stok_akhir')->toArray();
+    //     $acf = $this->calculateACF($stok_akhir, 30);
+
+    //     // Hitung PACF sampai lag 30
+    //     $pacf = $this->calculatePACF($acf);
+
+    //     // Hitung statistik (count, mean, std, dll.)
+    //     $count = count($stok_akhir);
+    //     $mean = $count > 0 ? array_sum($stok_akhir) / $count : 0;
+    //     $std = $count > 1 ? sqrt(array_sum(array_map(function ($x) use ($mean) { return pow($x - $mean, 2); }, $stok_akhir)) / ($count - 1)) : 0;
+    //     sort($stok_akhir);
+    //     $min = reset($stok_akhir);
+    //     $max = end($stok_akhir);
+    //     $percentiles = [
+    //         '25th_percentile' => $stok_akhir[floor(0.25 * ($count + 1)) - 1],
+    //         'median' => $stok_akhir[floor(0.5 * ($count + 1)) - 1],
+    //         '75th_percentile' => $stok_akhir[floor(0.75 * ($count + 1)) - 1],
+    //     ];
+
+    //     // Kirim statistik, ACF, dan PACF ke view
+    //     $stats = [
+    //         'count' => $count,
+    //         'mean' => $mean,
+    //         'std' => $std,
+    //         'min' => $min,
+    //         '25th_percentile' => $percentiles['25th_percentile'],
+    //         'median' => $percentiles['median'],
+    //         '75th_percentile' => $percentiles['75th_percentile'],
+    //         'max' => $max,
+    //     ];
+
+    //     return view('predictions.index', compact('stats', 'acf', 'pacf'));
+    // }
+
+    // // Fungsi untuk menghitung ACF
+    // private function calculateACF($data, $maxlag)
+    // {
+    //     $acf = [];
+
+    //     for ($lag = 1; $lag <= $maxlag; $lag++) {
+    //         $acf[] = $this->autocorrelation($data, $lag);
+    //     }
+
+    //     return $acf;
+    // }
+
+    // // Fungsi untuk menghitung autocorrelation
+    // private function autocorrelation($data, $lag)
+    // {
+    //     $n = count($data);
+    //     $mean = array_sum($data) / $n;
+    //     $numerator = 0;
+    //     $denominator = 0;
+
+    //     for ($i = 0; $i < $n - $lag; $i++) {
+    //         $numerator += ($data[$i] - $mean) * ($data[$i + $lag] - $mean);
+    //     }
+
+    //     for ($i = 0; $i < $n; $i++) {
+    //         $denominator += pow($data[$i] - $mean, 2);
+    //     }
+
+    //     return $numerator / $denominator;
+    // }
+
+    // // Fungsi untuk menghitung PACF
+    // private function calculatePACF($acf)
+    // {
+    //     $pacf = [];
+    //     $pacf[0] = 1.0; // PACF untuk lag 0 adalah 1
+
+    //     // Hitung PACF untuk lag 1 hingga maxlag
+    //     for ($k = 1; $k < count($acf); $k++) {
+    //         $numerator = $acf[$k];
+
+    //         for ($j = 1; $j < $k; $j++) {
+    //             $numerator -= $pacf[$j] * $acf[$k - $j];
+    //         }
+
+    //         $denominator = 1;
+
+    //         for ($j = 1; $j < $k; $j++) {
+    //             $denominator -= $pacf[$j] * $acf[$j];
+    //         }
+
+    //         if ($denominator != 0) {
+    //             $pacf[$k] = $numerator / $denominator;
+    //         } else {
+    //             $pacf[$k] = 0;
+    //         }
+    //     }
+
+    //     return $pacf;
+    // }
+
+//     public function prediction()
+//     {
+//         $datas = Data::all();
+
+//         $stok_akhir = $datas->pluck('stok_akhir')->toArray();
+//         $acf = $this->calculateACF($stok_akhir, 30);
+//         $pacf = $this->calculatePACF($acf);
+
+//         $count = count($stok_akhir);
+//         $mean = $count > 0 ? array_sum($stok_akhir) / $count : 0;
+//         $std = $count > 1 ? sqrt(array_sum(array_map(function ($x) use ($mean) {
+//             return pow($x - $mean, 2);
+//         }, $stok_akhir)) / ($count - 1)) : 0;
+//         sort($stok_akhir);
+//         $min = reset($stok_akhir);
+//         $max = end($stok_akhir);
+//         $percentiles = [
+//             '25th_percentile' => $stok_akhir[floor(0.25 * ($count + 1)) - 1],
+//             'median' => $stok_akhir[floor(0.5 * ($count + 1)) - 1],
+//             '75th_percentile' => $stok_akhir[floor(0.75 * ($count + 1)) - 1],
+//         ];
+
+//         $stats = [
+//             'count' => $count,
+//             'mean' => $mean,
+//             'std' => $std,
+//             'min' => $min,
+//             '25th_percentile' => $percentiles['25th_percentile'],
+//             'median' => $percentiles['median'],
+//             '75th_percentile' => $percentiles['75th_percentile'],
+//             'max' => $max,
+//         ];
+
+//         return view('predictions.index', compact('stats', 'acf', 'pacf'));
+//     }
+
+//     private function calculateACF($data, $maxlag)
+//     {
+//         $acf = [];
+
+//         for ($lag = 1; $lag <= $maxlag; $lag++) {
+//             $acf[] = $this->autocorrelation($data, $lag);
+//         }
+
+//         return $acf;
+//     }
+
+//     private function autocorrelation($data, $lag)
+//     {
+//         $n = count($data);
+//         $mean = array_sum($data) / $n;
+//         $numerator = 0;
+//         $denominator = 0;
+
+//         for ($i = 0; $i < $n - $lag; $i++) {
+//             $numerator += ($data[$i] - $mean) * ($data[$i + $lag] - $mean);
+//         }
+
+//         for ($i = 0; $i < $n; $denominator += pow($data[$i] - $mean, 2), $i++) {
+//             // No change needed here
+//         }
+
+//         return $numerator / $denominator;
+//     }
+
+// //     private function calculatePACF($acf)
+// // {
+// //     $n = count($acf);
+// //     $pacf = array_fill(0, $n + 1, 0);
+// //     $phi = array_fill(0, $n + 1, array_fill(0, $n + 1, 0));
+
+// //     // Initialize the first PACF value
+// //     $pacf[0] = 1; // PACF of lag 0 is always 1
+// //     $phi[1][1] = $acf[0];
+// //     $pacf[1] = $acf[0];
+
+// //     for ($k = 2; $k <= $n; $k++) {
+// //         $sum = 0;
+// //         for ($j = 1; $j < $k; $j++) {
+// //             $sum += $phi[$k-1][$j] * $acf[$k-$j-1];
+// //         }
+// //         $phi[$k][$k] = ($acf[$k-1] - $sum) / (1 - $sum);
+
+// //         for ($j = 1; $j < $k; $j++) {
+// //             $phi[$k][$j] = $phi[$k-1][$j] - $phi[$k][$k] * $phi[$k-1][$k-$j];
+// //         }
+
+// //         $pacf[$k] = $phi[$k][$k];
+// //     }
+
+// //     return array_slice($pacf, 1); // Exclude the first element which is always 1
+// // }
+
+// private function calculatePACF($acf)
+// {
+//     $n = count($acf);
+//     $pacf = array_fill(0, $n + 1, 0);
+//     $phi = array_fill(0, $n + 1, array_fill(0, $n + 1, 0));
+
+//     // Initialize the first PACF value
+//     $pacf[0] = 1; // PACF of lag 0 is always 1
+//     $phi[1][1] = $acf[0];
+//     $pacf[1] = $acf[0];
+
+//     for ($k = 2; $k <= $n; $k++) {
+//         $sum = 0;
+//         for ($j = 1; $j < $k; $j++) {
+//             $sum += $phi[$k-1][$j] * $acf[$k-$j-1];
+//         }
+//         $phi[$k][$k] = ($acf[$k-1] - $sum) / (1 - $sum);
+
+//         for ($j = 1; $j < $k; $j++) {
+//             $phi[$k][$j] = $phi[$k-1][$j] - $phi[$k][$k] * $phi[$k-1][$k-$j];
+//         }
+
+//         $pacf[$k] = $phi[$k][$k];
+//     }
+
+//     return array_slice($pacf, 1); // Exclude the first element which is always 1
+// }
+
+    // private function calculatePACF($acf)
+    // {
+    //     $n = count($acf);
+    //     $pacf = array_fill(0, $n, 0.0); // Initialize PACF array
+    //     $phi = array_fill(0, $n, array_fill(0, $n, 0.0)); // Initialize phi array
+
+    //     // Calculate PACF for lag 0 (always 1.0)
+    //     $pacf[0] = 1.0;
+
+    //     // Calculate PACF for lag 1 to n-1
+    //     for ($k = 1; $k < $n; $k++) {
+    //         $sum = 0;
+    //         for ($j = 1; $j < $k; $j++) {
+    //             $sum += $phi[$k-1][$j] * $acf[$k-$j-1];
+    //         }
+    //         $phi[$k][$k] = ($acf[$k-1] - $sum) / (1 - $sum);
+
+    //         for ($j = 1; $j < $k; $j++) {
+    //             $phi[$k][$j] = $phi[$k-1][$j] - $phi[$k][$k] * $phi[$k-1][$k-$j];
+    //         }
+
+    //         $pacf[$k] = $phi[$k][$k];
+    //     }
+
+    //     return array_slice($pacf, 1); // Exclude the first element which is always 1
+    // }
+
+
+
 }

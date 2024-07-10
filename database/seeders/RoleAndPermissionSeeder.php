@@ -28,13 +28,29 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'data.management']);
         Permission::create(['name' => 'prediction.management']);
 
-        // Data
+        // Data Palet
         Permission::create(['name' => 'data.index']);
         Permission::create(['name' => 'data.create']);
         Permission::create(['name' => 'data.edit']);
         Permission::create(['name' => 'data.destroy']);
         Permission::create(['name' => 'data.import']);
         Permission::create(['name' => 'data.export']);
+
+        // Data Palet Terpakai
+        Permission::create(['name' => 'palet-terpakai.index']);
+        Permission::create(['name' => 'palet-terpakai.create']);
+        Permission::create(['name' => 'palet-terpakai.edit']);
+        Permission::create(['name' => 'palet-terpakai.destroy']);
+        Permission::create(['name' => 'palet-terpakai.import']);
+        Permission::create(['name' => 'palet-terpakai.export']);
+
+        // Data Palet Kosong
+        Permission::create(['name' => 'palet-kosong.index']);
+        Permission::create(['name' => 'palet-kosong.create']);
+        Permission::create(['name' => 'palet-kosong.edit']);
+        Permission::create(['name' => 'palet-kosong.destroy']);
+        Permission::create(['name' => 'palet-kosong.import']);
+        Permission::create(['name' => 'palet-kosong.export']);
 
         // User
         Permission::create(['name' => 'user.index']);
@@ -91,26 +107,38 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'prediction.import']);
         Permission::create(['name' => 'prediction.export']);
 
-        // Create Roles Super Admin (PPIC)
-        $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        // Create Roles Super Admin
+        // $role = Role::create(['name' => 'super-admin']);
+        // $role->givePermissionTo(Permission::all());
+        // $role->givePermissionTo([
+        //     'dashboard', 'user.management', 'role.permission.management',' menu.management', 'data.management', 'prediction.management',
+        //     'data.index', 'data.create', 'data.edit', 'data.destroy', 'data.import', 'data.export',
+        //     'palet-terpakai.index', 'palet-terpakai.create', 'palet-terpakai.edit', 'palet-terpakai.destroy', 'palet-terpakai.import', 'palet-terpakai.export',
+        //     'palet-kosong.index', 'palet-kosong.create', 'palet-kosong.edit', 'palet-kosong.destroy', 'palet-kosong.import', 'palet-kosong.export',
+        //     'user.index', 'user.create', 'user.edit', 'user.destroy', 'user.import', 'user.export',
+        //     'role.index', 'role.create', 'role.edit', 'role.destroy', 'role.import', 'role.export',
+        //     'permission.index', 'permission.create', 'permission.edit', 'permission.destroy', 'permission.import', 'permission.export',
+        //     'assign.index', 'assign.create', 'assign.edit', 'assign.destroy', 'assign.user.index', 'assign.user.create', 'assign.user.edit',
+        //     'menu-group.index', 'menu-group.create', 'menu-group.edit', 'menu-group.destroy',
+        //     'menu-item.index', 'menu-item.create', 'menu-item.edit', 'menu-item.destroy',
+        //     'prediction.index', 'prediction.create', 'prediction.edit', 'prediction.destroy', 'prediction.import', 'prediction.export'
+        // ]);
 
         // Create Roles User (VP)
-        $roleUser = Role::create(['name' => 'user']);
+        $roleUser = Role::create(['name' => 'vp']);
         $roleUser->givePermissionTo([
             'dashboard',
-            'user.management',
-            'user.index',
-            'user.create',
-            'user.edit',
-            'user.destroy',
-            'user.export',
-            'data.management',
-            'data.index',
-            'data.create',
-            'data.edit',
-            'data.destroy',
-            'data.export',
+        ]);
+
+        // Create Roles User (PPIC)
+        $rolePPIC = Role::create(['name' => 'ppic']);
+        $rolePPIC->givePermissionTo([
+            'dashboard', 'user.management', 'data.management', 'prediction.management',
+            'data.index', 'data.create', 'data.edit', 'data.destroy', 'data.import', 'data.export',
+            // 'palet-kosong.index', 'palet-kosong.create', 'palet-kosong.edit', 'palet-kosong.destroy', 'palet-kosong.import', 'palet-kosong.export',
+            // 'palet-terpakai.index', 'palet-terpakai.create', 'palet-terpakai.edit', 'palet-terpakai.destroy', 'palet-terpakai.import', 'palet-terpakai.export',
+            'user.index', 'user.create', 'user.edit', 'user.destroy', 'user.import', 'user.export',
+            'prediction.index', 'prediction.create', 'prediction.edit', 'prediction.destroy', 'prediction.import', 'prediction.export'
         ]);
 
         // Create Admin
@@ -122,11 +150,13 @@ class RoleAndPermissionSeeder extends Seeder
         ]);
 
         // Assign user id 1 ke Super Admin
+        // $user = User::find(1);
+        // $user->assignRole('super-admin');
         $user = User::find(1);
-        $user->assignRole('super-admin');
+        $user->assignRole('vp');
         $user = User::find(2);
-        $user->assignRole('user');
-        $user = User::find(3);
-        $user->assignRole('admin');
+        $user->assignRole('ppic');
+        // $user = User::find(4);
+        // $user->assignRole('admin');
     }
 }

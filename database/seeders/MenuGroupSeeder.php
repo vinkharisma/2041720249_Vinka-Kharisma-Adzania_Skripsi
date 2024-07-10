@@ -31,6 +31,12 @@ class MenuGroupSeeder extends Seeder
                     'icon' => 'fas fa-table',
                     'permisison_name' => 'data.management',
                 ],
+                // Prediction Management
+                [
+                    'name' => 'Prediction Management',
+                    'icon' => 'fas fa-chart-bar',
+                    'permisison_name' => 'prediction.management',
+                ],
                 // Users Management
                 [
                     'name' => 'Users Management',
@@ -49,13 +55,6 @@ class MenuGroupSeeder extends Seeder
                     'icon' => 'fas fa-bars',
                     'permisison_name' => 'menu.management',
                 ],
-
-                // Prediction Management
-                // [
-                //     'name' => 'Prediction Management',
-                //     'icon' => 'fas fa-chart-line',
-                //     'permisison_name' => 'prediction.management',
-                // ],
             ]
         );
     }

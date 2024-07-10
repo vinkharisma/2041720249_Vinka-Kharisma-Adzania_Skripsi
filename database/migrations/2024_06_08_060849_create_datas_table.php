@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('datas', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
+            $table->date('tanggal')->unique();
             $table->string('name');
             $table->string('stok_awal');
             $table->string('masuk');

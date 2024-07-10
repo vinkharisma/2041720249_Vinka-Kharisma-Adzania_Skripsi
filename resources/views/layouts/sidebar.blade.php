@@ -11,8 +11,18 @@
 
         <li class="menu-header">Starter</li>
         <li>
-            <a class="nav-link" href="/home"><i class="far fa-square"></i> <span>Blank
-                    Page</span></a>
+            <a class="nav-link" href="/home"><i class="far fa-square"></i> <span>Blank Page</span></a>
+        </li>
+
+        <!--Data Management-->
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chart-line"></i>
+                <span>Data Management</span></a>
+            <ul class="dropdown-menu">
+                <li><a class="nav-link " href="{{ route('data.index') }}">Data Table</a></li>
+                <li><a class="nav-link " href="{{ route('palet-terpakai.index') }}">Data Table</a></li>
+                <li><a class="nav-link " href="{{ route('palet-kosong.index') }}">Data Table</a></li>
+            </ul>
         </li>
 
         <!--User Management-->
@@ -46,23 +56,14 @@
             </ul>
         </li>
 
-        <!--Data Management-->
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chart-line"></i>
-                <span>Data Management</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link " href="{{ route('data.index') }}">Data Table</a></li>
-            </ul>
-        </li>
-
         <!--Prediction Management-->
-        {{-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chart-line"></i>
                 <span>Prediction Management</span></a>
             <ul class="dropdown-menu">
                 <li><a class="nav-link " href="{{ route('prediction.index') }}">Prediction Form</a></li>
             </ul>
-        </li> --}}
+        </li>
 
     </ul>
 </aside>

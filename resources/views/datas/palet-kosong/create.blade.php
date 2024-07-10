@@ -4,10 +4,10 @@
 
     <section class="section">
         <div class="section-header">
-            <h1>Stok Data List</h1>
+            <h1>Stok Data List - Kosong</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
+                <div class="breadcrumb-item"><a href="/data-management/palet-kosong">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <h4>Create Pallet Stock Data Form</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('data.store') }}" method="post">
+                    <form action="{{ route('palet-kosong.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -122,7 +122,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
-                            <a class="btn btn-secondary" href="{{ route('data.index') }}">Cancel</a>
+                            <a class="btn btn-secondary" href="{{ route('palet-kosong.index') }}">Cancel</a>
                         </div>
                     </form>
                 </div>

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\DataPaletKosongController;
+use App\Http\Controllers\DataPaletTerpakaiController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
@@ -17,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
+use App\Models\DataPaletKosong;
+use App\Models\DataPaletTerpakai;
+use DebugBar\DataCollector\DataCollector;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +42,34 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('home', ['users' => User::get(),]);
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard', ['users' => User::get(),]);
+    // });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Profile
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile.index');
+    // Route::put('/dashboard/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+
+    // Data Management
+    Route::prefix('data-management')->group(function () {
+        Route::resource('data', DataController::class);
+        Route::get('export', [DataController::class, 'export'])->name('data.export');
+        Route::post('import', [DataController::class, 'import'])->name('data.import');
+        // Route::get('export', [DataController::class, 'export'])->name('palet-terpakai.export');
+
+        // Route::resource('palet-terpakai', DataPaletTerpakaiController::class);
+        // // Route::get('palet-terpakai/export', [DataPaletTerpakaiController::class, 'export'])->name('palet-terpakai.export');
+        // Route::post('palet-terpakai/import', [DataPaletTerpakaiController::class, 'import'])->name('palet-terpakai.import');
+
+        // Route::resource('palet-kosong', DataPaletKosongController::class);
+        // // Route::get('palet-kosong/export', [DataPaletKosongController::class, 'export'])->name('palet-kosong.export');
+        // Route::post('palet-kosong/import', [DataPaletKosongController::class, 'import'])->name('palet-kosong.import');
     });
+
+    // Prediction
+    Route::get('/prediction/{type}', [PredictionController::class, 'index'])->name('datas.prediction');
+    // Route::get('/prediction', [PredictionController::class, 'index'])->name('prediction.index');
 
     // User Management
     Route::prefix('user-management')->group(function () {
@@ -47,10 +78,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('export', [UserController::class, 'export'])->name('user.export');
         Route::get('demo', DemoController::class)->name('user.demo');
     });
-
-    // Profile
-    Route::get('/profile', [UserController::class, 'profile'])->name('profile.index');
-    // Route::put('/dashboard/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
     // Role Management
     Route::group(['prefix' => 'role-and-permission'], function () {
@@ -87,23 +114,18 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::resource('menu-item', MenuItemController::class);
     });
 
-    // Data Management
-    // Route::resource('data', DataController::class);
-    Route::prefix('data-management')->group(function () {
-        Route::resource('data', DataController::class);
-        Route::get('export', [DataController::class, 'export'])->name('data.export');
-        Route::post('import', [DataController::class, 'import'])->name('data.import');
-    });
-
     // Prediction Management
     // Route::resource('prediction', PredictionController::class);
 
-    // // Test
+    // // // Test
     // Route::prefix('prediction-management')->group(function () {
-    //     // Data Management
-    //     Route::resource('data', DataController::class);
     //     // Prediction Management
     //     Route::resource('prediction', PredictionController::class);
+    //     // Route::get('prediction', [PredictionController::class, 'index'])->name('predictions.index');
     // });
+
+    Route::get('/prediction-management/prediction', function () {
+        return view('predictions.index');
+    });
 
 });

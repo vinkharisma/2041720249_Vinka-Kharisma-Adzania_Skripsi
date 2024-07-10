@@ -7,7 +7,7 @@
             <h1>User List</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
+                <div class="breadcrumb-item"><a href="/user-management/user">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-10">
                                                 <label class="custom-file-label" for="file-upload">Choose File</label>
-                                                <input type="file" id="file-upload" class="custom-file-input" name="import_file">
+                                                <input style="width: 1050px" type="file" id="file-upload" class="custom-file-input" name="file" required="required" accept=".xlsx,.xls">
                                             </div>
                                             <div class="form-group col-md-2 text-center">
                                                 <button class="btn btn-primary" style="padding-top: 7.5px; padding-bottom: 7.5px;">Import File</button>

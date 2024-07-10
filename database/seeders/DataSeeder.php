@@ -28,56 +28,56 @@ class DataSeeder extends Seeder
         //     'jumlah_stok_palet_rusak' => "0",
         // ]);
 
-        // DB::table('datas')->insert(
-        //     [
-        //         [
-        //             'tanggal' => "20/11/01",
-        //             'name' => "TERPAKAI",
-        //             'stok_awal' => "100",
-        //             'masuk' => "15",
-        //             'keluar' => "0",
-        //             'stok_akhir' => "115",
-        //             'jumlah_stok_palet_baik' => "220",
-        //             'jumlah_stok_palet_rusak' => "0",
-        //             'created_at' => now(),
-        //             'updated_at' => now(),
-        //         ],
-        //         [
-        //             'tanggal' => "20/11/01",
-        //             'name' => "KOSONG",
-        //             'stok_awal' => "125",
-        //             'masuk' => "0",
-        //             'keluar' => "20",
-        //             'stok_akhir' => "105",
-        //             'jumlah_stok_palet_baik' => "220",
-        //             'jumlah_stok_palet_rusak' => "0",
-        //             'created_at' => now(),
-        //             'updated_at' => now(),
-        //         ],
-        //         [
-        //             'tanggal' => "20/11/02",
-        //             'name' => "TERPAKAI",
-        //             'stok_awal' => "115",
-        //             'masuk' => "11",
-        //             'keluar' => "0",
-        //             'stok_akhir' => "126",
-        //             'jumlah_stok_palet_baik' => "313",
-        //             'jumlah_stok_palet_rusak' => "0",
-        //             'created_at' => now(),
-        //             'updated_at' => now(),
-        //         ],
-        //         [
-        //             'tanggal' => "20/11/02",
-        //             'name' => "KOSONG",
-        //             'stok_awal' => "105",
-        //             'masuk' => "82",
-        //             'keluar' => "0",
-        //             'stok_akhir' => "187",
-        //             'jumlah_stok_palet_baik' => "313",
-        //             'jumlah_stok_palet_rusak' => "0",
-        //             'created_at' => now(),
-        //             'updated_at' => now(),
-        //         ],
+        DB::table('datas')->insert(
+            [
+                // [
+                //     'tanggal' => "20/11/01",
+                //     'name' => "TERPAKAI",
+                //     'stok_awal' => "100",
+                //     'masuk' => "15",
+                //     'keluar' => "0",
+                //     'stok_akhir' => "115",
+                //     'jumlah_stok_palet_baik' => "220",
+                //     'jumlah_stok_palet_rusak' => "0",
+                //     'created_at' => now(),
+                //     'updated_at' => now(),
+                // ],
+                [
+                    'tanggal' => "20/11/01",
+                    'name' => "KOSONG",
+                    'stok_awal' => "125",
+                    'masuk' => "0",
+                    'keluar' => "20",
+                    'stok_akhir' => "105",
+                    'jumlah_stok_palet_baik' => "220",
+                    'jumlah_stok_palet_rusak' => "0",
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                // [
+                //     'tanggal' => "20/11/02",
+                //     'name' => "TERPAKAI",
+                //     'stok_awal' => "115",
+                //     'masuk' => "11",
+                //     'keluar' => "0",
+                //     'stok_akhir' => "126",
+                //     'jumlah_stok_palet_baik' => "313",
+                //     'jumlah_stok_palet_rusak' => "0",
+                //     'created_at' => now(),
+                //     'updated_at' => now(),
+                // ],
+                [
+                    'tanggal' => "20/11/02",
+                    'name' => "KOSONG",
+                    'stok_awal' => "105",
+                    'masuk' => "82",
+                    'keluar' => "0",
+                    'stok_akhir' => "187",
+                    'jumlah_stok_palet_baik' => "313",
+                    'jumlah_stok_palet_rusak' => "0",
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
         //         [
         //             'tanggal' => "20/11/03",
         //             'name' => "TERPAKAI",
@@ -1542,8 +1542,8 @@ class DataSeeder extends Seeder
         //             'created_at' => now(),
         //             'updated_at' => now(),
         //         ],
-        //     ]
-        // );
+            ]
+        );
 
         // Data::factory()->count(10)->create();
 

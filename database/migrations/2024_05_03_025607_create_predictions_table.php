@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('predictions', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal')->unique();
+            $table->string('hasil');
             $table->timestamps();
         });
     }

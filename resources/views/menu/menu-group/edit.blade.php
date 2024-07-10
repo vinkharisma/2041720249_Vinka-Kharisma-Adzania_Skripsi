@@ -7,7 +7,7 @@
             <h1>Menu Group and Menu Item</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
+                <div class="breadcrumb-item"><a href="/menu-management/menu-group">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>

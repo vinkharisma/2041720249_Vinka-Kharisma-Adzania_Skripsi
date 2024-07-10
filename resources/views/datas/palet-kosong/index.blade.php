@@ -4,10 +4,10 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Stok Data List</h1>
+            <h1>Stok Data List - Kosong</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="#">Components</a></div>
+                <div class="breadcrumb-item"><a href="/data-management/palet-kosong">Components</a></div>
                 <div class="breadcrumb-item">Table</div>
             </div>
         </div>
@@ -25,23 +25,24 @@
                         <div class="card-header">
                             <h4>Pallet Stock Data Table</h4>
                             <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('data.create') }}">Create New
+                                <a class="btn btn-icon icon-left btn-primary" href="{{ route('palet-kosong.create') }}">Create New
                                     Data</a>
-                                <a class="btn btn-info btn-primary active import">
+                                <a class="btn btn-icon btn-primary import" style="color: #ffff">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Import Data</a>
-                                <a class="btn btn-info btn-primary active" href="{{ route('data.export') }}">
+                                {{-- <a class="btn btn-icon btn-primary" href="{{ route('palet-kosong.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
-                                    Export Data</a>
-                                <a class="btn btn-info btn-primary active search">
+                                    Export Data</a> --}}
+                                <a class="btn btn-icon btn-primary search" style="color: #ffff">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search Data</a>
+                                <a class="btn btn-info btn-primary" href="{{ route('datas.prediction', ['type' => 'palet-kosong']) }}" style="color: #ffff">Forecasting</a>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="show-import mb-4" style="display: none">
                                 <div class="custom-file">
-                                    <form action="{{ route('data.import') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('palet-kosong.import') }}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <div class="form-row" style="margin-left: 0px; margin-right: 0px;">
                                             <div class="form-group col-md-10">
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="{{ route('data.index') }}">
+                                <form id="search" method="GET" action="{{ route('palet-kosong.index') }}">
                                     <div class="form-row" style="padding-left: 5px;">
                                         <div class="form-group col-md-10" style="padding-left: 0px; padding-right: 0px;">
                                             <label for="role">Data</label>
@@ -64,7 +65,7 @@
                                         </div>
                                         <div class="text-right" style="padding-top: 30px">
                                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                            <a class="btn btn-secondary" href="{{ route('data.index') }}">Reset</a>
+                                            <a class="btn btn-secondary" href="{{ route('palet-kosong.index') }}">Reset</a>
                                         </div>
                                     </div>
 
@@ -74,40 +75,40 @@
                                 <table class="table table-bordered table-md">
                                     <tbody>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Tanggal</th>
-                                            <th>Keterangan</th>
-                                            <th>Stok Awal</th>
-                                            <th>Masuk</th>
-                                            <th>Keluar</th>
-                                            <th>Stok Akhir</th>
-                                            <th>Jumlah Stok Palet Baik</th>
-                                            <th>Jumlah Stok Palet Rusak</th>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Stok Awal</th>
+                                            <th class="text-center">Masuk</th>
+                                            <th class="text-center">Keluar</th>
+                                            <th class="text-center">Stok Akhir</th>
+                                            <th class="text-center">Jumlah Stok Palet Baik</th>
+                                            <th class="text-center">Jumlah Stok Palet Rusak</th>
                                             {{-- <th>Created At</th> --}}
                                             <th class="text-center">Action</th>
                                         </tr>
 
-                                        @foreach ($datas as $key => $data)
+                                        @foreach ($palet_kosongs as $key => $palet_kosong)
                                             <tr>
-                                                <td>{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
-                                                <td>{{ $data->tanggal }}</td>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->stok_awal }}</td>
-                                                <td>{{ $data->masuk }}</td>
-                                                <td>{{ $data->keluar }}</td>
-                                                <td>{{ $data->stok_akhir }}</td>
-                                                <td>{{ $data->jumlah_stok_palet_baik }}</td>
-                                                <td>{{ $data->jumlah_stok_palet_rusak}}</td>
+                                                <td class="text-center">{{ ($palet_kosongs->currentPage() - 1) * $palet_kosongs->perPage() + $key + 1 }}</td>
+                                                <td>{{ $palet_kosong->tanggal }}</td>
+                                                <td>{{ $palet_kosong->name }}</td>
+                                                <td class="text-right">{{ $palet_kosong->stok_awal }}</td>
+                                                <td class="text-right">{{ $palet_kosong->masuk }}</td>
+                                                <td class="text-right">{{ $palet_kosong->keluar }}</td>
+                                                <td class="text-right">{{ $palet_kosong->stok_akhir }}</td>
+                                                <td class="text-right">{{ $palet_kosong->jumlah_stok_palet_baik }}</td>
+                                                <td class="text-right">{{ $palet_kosong->jumlah_stok_palet_rusak}}</td>
                                                 {{-- <td>{{ $data->created_at}}</td> --}}
 
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="{{ route('data.edit', $data->id) }}"
+                                                        <a href="{{ route('palet-kosong.edit', $palet_kosong->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
-                                                        <form action="{{ route('data.destroy', $data->id) }}"
+                                                        <form action="{{ route('palet-kosong.destroy', $palet_kosong->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -122,7 +123,7 @@
                                     </tbody>
                                 </table>
                                 <div class="d-flex justify-content-center">
-                                    {{ $datas->withQueryString()->links() }}
+                                    {{ $palet_kosongs->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
