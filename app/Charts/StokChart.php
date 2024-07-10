@@ -28,12 +28,15 @@ class StokChart
 
         // Mengisi array dengan data dari database
         foreach ($datas as $data) {
-            $dataStokAkhir[] = $data->stok_akhir;
+            $dataStokAkhir[] = round($data->stok_akhir); // Membulatkan nilai stok akhir
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
         // Hitung garis tren
         $trendline = $this->calculateTrendline($dataStokAkhir);
+
+        // Membulatkan nilai trendline
+        $trendline = array_map('round', $trendline);
 
         // Bangun chart
         return $this->chart->lineChart()
@@ -148,7 +151,7 @@ class StokChart
         // Mengisi array dengan data dari $prediksiData
         foreach ($prediksiData as $data) {
             $dates[] = $data['Tanggal'];
-            $values[] = $data['Prediksi Kebutuhan Palet'];
+            $values[] = round($data['Prediksi Kebutuhan Palet']); // Membulatkan nilai
         }
 
         return $this->chart->lineChart()
@@ -161,5 +164,6 @@ class StokChart
             ->setFontFamily('Nunito, Segoe UI, Arial')
             ->setGrid();
     }
+
 
 }

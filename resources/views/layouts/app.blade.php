@@ -19,8 +19,8 @@
         @stack('customStyle')
 
         <!-- Template CSS -->
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <link rel="stylesheet" href="/assets/css/components.css">
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
+        <link rel="stylesheet" href="{{ '/assets/css/components.css '}}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
     </head>
@@ -122,7 +122,7 @@
                                 <a href="#">Mark All As Read</a>
                                 </div>
                             </div>
-                            <div class="dropdown-list-content dropdown-list-icons">
+                            {{-- <div class="dropdown-list-content dropdown-list-icons">
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-icon bg-primary text-white">
                                     <i class="fas fa-code"></i>
@@ -168,10 +168,10 @@
                                     <div class="time">Yesterday</div>
                                 </div>
                                 </a>
-                            </div>
-                            <div class="dropdown-footer text-center">
+                            </div> --}}
+                            {{-- <div class="dropdown-footer text-center">
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                            </div>
+                            </div> --}}
                             </div>
                         </li>
 
@@ -187,13 +187,13 @@
                                     <i class="far fa-user"></i> Profile
                                 </a>
                                 {{-- Activities --}}
-                                <a href="features-activities.html" class="dropdown-item has-icon">
+                                {{-- <a href="features-activities.html" class="dropdown-item has-icon">
                                     <i class="fas fa-bolt"></i> Activities
-                                </a>
+                                </a> --}}
                                 {{-- About --}}
-                                <a href="features-settings.html" class="dropdown-item has-icon">
+                                {{-- <a href="features-settings.html" class="dropdown-item has-icon">
                                     <i class="fas fa-cog"></i> About
-                                </a>
+                                </a> --}}
                                 <div class="dropdown-divider"></div>
                                 {{-- Logout --}}
                                 <a href="{{ route('logout') }}"

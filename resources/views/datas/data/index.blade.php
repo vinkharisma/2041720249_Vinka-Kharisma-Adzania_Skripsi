@@ -33,9 +33,9 @@
                                 <a class="btn btn-icon btn-primary" href="{{ route('data.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     Export Data</a>
-                                <a class="btn btn-icon btn-primary search" style="color: #ffff">
+                                {{-- <a class="btn btn-icon btn-primary search" style="color: #ffff">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    Search Data</a>
+                                    Search Data</a> --}}
                                 <a class="btn btn-info btn-primary" href="{{ route('datas.prediction', ['type' => 'data']) }}" style="color: #ffff">Forecasting</a>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                         <tr>
                                             <th class="text-center">ID</th>
                                             <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Keterangan</th>
+                                            {{-- <th class="text-center">Keterangan</th> --}}
                                             <th class="text-center">Stok Awal</th>
                                             <th class="text-center">Masuk</th>
                                             <th class="text-center">Keluar</th>
@@ -92,7 +92,7 @@
                                             <tr>
                                                 <td class="text-center">{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
                                                 <td>{{ $data->tanggal }}</td>
-                                                <td>{{ $data->name }}</td>
+                                                {{-- <td>{{ $data->name }}</td> --}}
                                                 <td class="text-right">{{ $data->stok_awal }}</td>
                                                 <td class="text-right">{{ $data->masuk }}</td>
                                                 <td class="text-right">{{ $data->keluar }}</td>
