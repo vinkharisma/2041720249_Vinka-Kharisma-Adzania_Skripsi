@@ -72,7 +72,7 @@
                     </form>
 
                     <div class="text-center mt-5 text-small">
-                    Copyright &copy; Stisla 2018
+                    {{-- Copyright &copy; Stisla 2018 --}}
                     <div class="mt-2">
                         <a href="#">Privacy Policy</a>
                         <div class="bullet"></div>
