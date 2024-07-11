@@ -16,8 +16,8 @@
 
     <!-- Template CSS -->
 
-    <link rel="stylesheet" href="{{ assets('/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ assets('/assets/css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/components.css') }}">
 </head>
 
 <body>

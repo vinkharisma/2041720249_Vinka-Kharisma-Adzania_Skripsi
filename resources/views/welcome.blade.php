@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
-  <link rel="stylesheet" href="{{ '/assets/css/components.css' }}">
+  <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('/assets/css/components.css') }}">
 </head>
 
 <body>
