@@ -13,7 +13,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../node_modules/selectric/public/selectric.css">
+    <link rel="stylesheet" href="{{ asset('/node_modules/selectric/public/selectric.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; Stisla 2018
+                            {{-- Copyright &copy; Stisla 2018 --}}
                         </div>
                     </div>
                 </div>
@@ -177,18 +177,18 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="../assets/js/stisla.js"></script>
+    <script src="{{ asset('/assets/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
-    <script src="../node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-    <script src="../node_modules/selectric/public/jquery.selectric.min.js"></script>
+    <script src="{{ asset('/node_modules/jquery-pwstrength/jquery.pwstrength.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/selectric/public/jquery.selectric.min.js') }}"></script>
 
     <!-- Template JS File -->
-    <script src="../assets/js/scripts.js"></script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="{{ ('/assets/js/scripts.js') }}"></script>
+    <script src="{{ ('/assets/js/custom.js') }}"></script>
 
     <!-- Page Specific JS File -->
-    <script src="../assets/js/page/auth-register.js"></script>
+    <script src="{{ ('/assets/js/page/auth-register.js') }}"></script>
 </body>
 
 </html>

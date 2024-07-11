@@ -4,7 +4,9 @@
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="/dashboard">
-            <img src="../assets/img/pallet.png" alt="logo" class="shadow-light rounded-circle mb-5 mt-2" style="margin-bottom: 0px !important; margin-top: 0px !important; width: 50px !important;">
+            <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+
+            <img src="{{ asset('/assets/img/pallet.png') }}" alt="logo" class="shadow-light rounded-circle mb-5 mt-2" style="margin-bottom: 0px !important; margin-top: 0px !important; width: 50px !important;">
         </a>
     </div>
     <ul class="sidebar-menu">
