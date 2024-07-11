@@ -272,6 +272,11 @@ class PredictionController extends Controller
             $mapeValue = isset($mapeData[1][0]) ? $mapeData[1][0] : 'Data tidak ditemukan';
         }
 
+        // Pastikan MAPE adalah numerik
+        if (!is_numeric($mapeValue)) {
+            $mapeValue = 0; // atau nilai default lain yang sesuai
+        }
+
         // Initialize the chart for predictions with data
         $chartPrediksi = $this->stokChart->buildPrediksiChart($prediksiData); // Pass the $prediksiData
 
