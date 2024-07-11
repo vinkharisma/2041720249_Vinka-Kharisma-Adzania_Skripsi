@@ -28,7 +28,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-info" style="padding-top: 0px !important; margin-top: 10px !important; width: 90px !important; height: 90px !important; margin-left: 10px !important; margin-right: 10px !important;">
-                        <img src="../assets/img/pallet3.png"
+                        <img src="{{ asset('/assets/img/pallet3.png') }}"
                             style="width: 70px !important; height: 70px !important; filter: invert(1); margin-bottom: 0px !important;"
                         >
                     </div>
@@ -49,7 +49,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-warning" style="padding-top: 0px !important; margin-top: 10px !important; width: 90px !important; height: 90px !important; margin-left: 10px !important; margin-right: 10px !important;">
-                        <img src="../assets/img/pallet4.png"
+                        <img src="{{ asset('/assets/img/pallet4.png') }}"
                             style="width: 60px !important; height: 60px !important; filter: invert(1); margin-bottom: 0px !important;"
                         >
                     </div>
@@ -70,7 +70,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-success" style="padding-top: 0px !important; margin-top: 10px !important; width: 90px !important; height: 90px !important; margin-left: 10px !important; margin-right: 10px !important;">
-                        <img src="../assets/img/check.png"
+                        <img src="{{ asset('/assets/img/check.png') }}"
                             style="width: 55px !important; height: 55px !important; filter: invert(1); margin-bottom: 0px !important;"
                         >
                     </div>
@@ -91,7 +91,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger" style="padding-top: 0px !important; margin-top: 10px !important; width: 90px !important; height: 90px !important; margin-left: 10px !important; margin-right: 10px !important;">
-                        <img src="../assets/img/warning.png"
+                        <img src="{{ asset('/assets/img/warning.png') }}"
                             style="width: 55px !important; height: 55px !important; filter: invert(1); margin-bottom: 0px !important;"
                         >
                     </div>

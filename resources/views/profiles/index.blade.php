@@ -23,7 +23,7 @@
                             <div class="col-12 col-md-12 col-lg-5">
                                 <div class="card profile-widget">
                                     <div class="profile-widget-header" style="display: flex; justify-content: center; align-items: center;">
-                                        <img style="width: 200px" alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle profile-widget-picture">
+                                        <img style="width: 200px" alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" class="rounded-circle profile-widget-picture">
                                     </div>
                                     <div class="profile-widget-description">
                                         <div style="display: flex; justify-content: center; align-items: center;" class="profile-widget-name">{{ $user->name }}
