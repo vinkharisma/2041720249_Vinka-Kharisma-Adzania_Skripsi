@@ -242,7 +242,8 @@
                         </div>
                         <div class="card-body">
                             <div class="alert alert-primary" role="alert">
-                                <strong>Mean Absolute Percentage Error (MAPE):</strong> {{ number_format($mape* 100, 2) }}%
+                                <strong>Mean Absolute Percentage Error (MAPE):</strong> {{ number_format($mape) }}
+                                {{-- <strong>Mean Absolute Percentage Error (MAPE):</strong> {{ number_format($mape* 100, 2) }}% --}}
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-md">
