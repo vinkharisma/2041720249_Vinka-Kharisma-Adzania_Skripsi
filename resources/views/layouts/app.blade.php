@@ -20,7 +20,7 @@
 
         <!-- Template CSS -->
         <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
-        <link rel="stylesheet" href="{{ '/assets/css/components.css '}}">
+        <link rel="stylesheet" href="{{ '/assets/css/components.css' }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
     </head>
