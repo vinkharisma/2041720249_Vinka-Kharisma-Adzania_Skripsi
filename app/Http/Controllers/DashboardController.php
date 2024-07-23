@@ -15,7 +15,8 @@ class DashboardController extends Controller
     public function index(StokChart $chart)
     {
         // Mengambil data pertama untuk stok_awal dan data terakhir untuk stok_akhir, jumlah_stok_palet_baik, dan jumlah_stok_palet_rusak
-        $data_first = Data::first();
+        // $data_first = Data::first();
+        $data_first = Data::orderBy('id', 'desc')->first();
         $data_last = Data::orderBy('id', 'desc')->first();
 
         $data_first_kosong = DataPaletKosong::first();
