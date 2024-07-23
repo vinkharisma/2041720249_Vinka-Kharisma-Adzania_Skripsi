@@ -30,12 +30,12 @@
                                 {{-- <a class="btn btn-info btn-primary active import">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     Import User</a> --}}
-                                <a class="btn btn-info btn-primary active" href="{{ route('user.export') }}">
+                                <a class="btn btn-icon btn-primary" href="{{ route('data.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
-                                    Export User</a>
-                                <a class="btn btn-info btn-primary active search">
+                                    Export Data</a>
+                                <a class="btn btn-icon btn-primary search" style="color: #ffff">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    Search User</a>
+                                    Search Data</a>
                             </div>
                         </div>
                         <div class="card-body">
