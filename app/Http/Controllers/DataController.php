@@ -38,7 +38,17 @@ class DataController extends Controller
 
         // Mengambil data
         $datas = Data::when($request->input('tanggal'), function ($query, $tanggal) {
-            return $query->where('tanggal', 'like', '%' . $tanggal . '%');
+            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $tanggal)) { // Format YYYY-MM-DD
+                return $query->whereDate('tanggal', $tanggal);
+            } elseif (preg_match('/^\d{4}-\d{2}$/', $tanggal)) { // Format YYYY-MM
+                return $query->whereBetween('tanggal', [
+                    $tanggal . '-01',
+                    $tanggal . '-31'
+                ]);
+            } elseif (preg_match('/^\d{4}$/', $tanggal)) { // Format YYYY
+                return $query->whereYear('tanggal', $tanggal);
+            }
+            return $query;
             })
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');

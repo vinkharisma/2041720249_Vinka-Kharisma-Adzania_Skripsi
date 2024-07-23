@@ -33,9 +33,9 @@
                                 <a class="btn btn-icon btn-primary" href="{{ route('data.export') }}">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     Export Data</a>
-                                {{-- <a class="btn btn-icon btn-primary search" style="color: #ffff">
+                                <a class="btn btn-icon btn-primary search" style="color: #ffff">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    Search Data</a> --}}
+                                    Search Data</a>
                                 <a class="btn btn-info btn-primary" href="{{ route('datas.prediction', ['type' => 'data']) }}" style="color: #ffff">Forecasting</a>
                             </div>
                         </div>
@@ -58,17 +58,25 @@
                             </div>
                             <div class="show-search mb-3" style="display: none">
                                 <form id="search" method="GET" action="{{ route('data.index') }}">
-                                    <div class="form-row" style="padding-left: 5px;">
-                                        <div class="form-group col-md-10" style="padding-left: 0px; padding-right: 0px;">
-                                            <label for="role">Data</label>
-                                            <input style="width: 1032px" type="text" name="name" class="form-control" id="name" placeholder="Data Name">
+                                    <div class="form-row" style="padding-left: 5px; align-items: center;">
+                                        <!-- Data Name Input -->
+                                        <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
+                                            <label for="name" class="sr-only">Keterangan</label>
+                                            <input style="width: 100%;" type="text" name="name" class="form-control" id="name" placeholder="Keterangan">
                                         </div>
-                                        <div class="text-right" style="padding-top: 30px">
+
+                                        <!-- Tanggal Input -->
+                                        <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
+                                            <label for="tanggal" class="sr-only">Tanggal</label>
+                                            <input style="width: 100%;" type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Tanggal (YYYY, YYYY-MM, YYYY-MM-DD)">
+                                        </div>
+
+                                        <!-- Submit and Reset Buttons -->
+                                        <div class="form-group col-md-2 text-right" style="padding-left: 0px; padding-right: 15px;">
                                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
                                             <a class="btn btn-secondary" href="{{ route('data.index') }}">Reset</a>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                             <div class="table-responsive">
@@ -77,7 +85,7 @@
                                         <tr>
                                             <th class="text-center">ID</th>
                                             <th class="text-center">Tanggal</th>
-                                            {{-- <th class="text-center">Keterangan</th> --}}
+                                            <th class="text-center">Keterangan</th>
                                             <th class="text-center">Stok Awal</th>
                                             <th class="text-center">Masuk</th>
                                             <th class="text-center">Keluar</th>
@@ -92,7 +100,7 @@
                                             <tr>
                                                 <td class="text-center">{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
                                                 <td>{{ $data->tanggal }}</td>
-                                                {{-- <td>{{ $data->name }}</td> --}}
+                                                <td>{{ $data->name }}</td>
                                                 <td class="text-right">{{ $data->stok_awal }}</td>
                                                 <td class="text-right">{{ $data->masuk }}</td>
                                                 <td class="text-right">{{ $data->keluar }}</td>
