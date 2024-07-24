@@ -42,17 +42,14 @@ class UserController extends Controller
 
         // Mengambil data
         $users = DB::table('users')
-            ->when($request->input('name'), function ($query, $name) {
-                return $query->where('name', 'like', '%' . $name . '%');
-            })
-            ->when($request->input('no_pegawai'), function ($query, $no_pegawai) {
-                return $query->where('no_pegawai', 'like', '%' . $no_pegawai . '%');
-            })
-            ->when($request->input('departemen'), function ($query, $departemen) {
-                return $query->where('departemen', 'like', '%' . $departemen . '%');
-            })
-            ->when($request->input('no_hp'), function ($query, $no_hp) {
-                return $query->where('no_hp', 'like', '%' . $no_hp . '%');
+            ->when($request->input('search'), function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%')
+                        ->orWhere('no_pegawai', 'like', '%' . $search . '%')
+                        ->orWhere('departemen', 'like', '%' . $search . '%')
+                        ->orWhere('no_hp', 'like', '%' . $search . '%');
+                });
             })
             ->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
             ->paginate(10);

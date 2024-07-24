@@ -60,8 +60,8 @@
                                 <form id="search" method="GET" action="{{ route('user.index') }}">
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
-                                            <label for="role">User</label>
-                                            <input style="width: 1032px" type="text" name="name" class="form-control" id="name" placeholder="User Name">
+                                            <label for="search">Search</label>
+                                            <input type="text" name="search" class="form-control" id="search" placeholder="Search by Name, Email, No Pegawai, Departemen, No HP">
                                         </div>
                                         <div class="text-right" style="padding-top: 30px">
                                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
@@ -70,6 +70,7 @@
                                     </div>
                                 </form>
                             </div>
+
                             <div class="table-responsive">
                                 <table class="table table-bordered table-md">
                                     <tbody>
