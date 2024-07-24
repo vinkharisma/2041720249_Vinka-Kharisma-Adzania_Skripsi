@@ -37,8 +37,10 @@
                         {{-- Keterangan --}}
                         <div class="form-group">
                             <label for="name">Keterangan</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                name="name" value="{{ $data->name }}">
+                            <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                                <option value="TERPAKAI" {{ $data->name == 'TERPAKAI' ? 'selected' : '' }}>TERPAKAI</option>
+                                <option value="KOSONG" {{ $data->name == 'KOSONG' ? 'selected' : '' }}>KOSONG</option>
+                            </select>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}

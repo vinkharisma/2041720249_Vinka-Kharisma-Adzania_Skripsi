@@ -12,6 +12,7 @@
     {{ $chartPaletKosong->script() }}
     {{ $chartPaletTerpakai->script() }}
     {{ $chartPrediksi->script() }}
+
 @endsection
 
 @section('content')
@@ -139,112 +140,39 @@
                         {!! $chartStokAkhir->container() !!}
                         {{-- {!! $chartPaletKosong->container() !!} --}}
                         {{-- {!! $chartPaletTerpakai->container() !!} --}}
-                        {!! $chartPrediksi->container() !!}
-
                     </div>
                 </div>
             </div>
-
-            {{-- <!-- Memuat jQuery jika diperlukan -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-            <!-- Memuat Chart.js -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-            <!-- Kode JavaScript untuk membuat grafik -->
-            <script>
-                var ctx = document.getElementById("myChart").getContext('2d');
-                var myChart = new Chart(ctx, {
-                  type: 'line',
-                  data: {
-                    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                    datasets: [{
-                      label: 'Statistics',
-                      data: [460, 458, 330, 502, 430, 610, 488],
-                      borderWidth: 2,
-                      backgroundColor: '#6777ef',
-                      borderColor: '#6777ef',
-                      borderWidth: 2.5,
-                      pointBackgroundColor: '#ffffff',
-                      pointRadius: 4
-                    }]
-                  },
-                  options: {
-                    legend: {
-                      display: false
-                    },
-                    scales: {
-                      yAxes: [{
-                        gridLines: {
-                          drawBorder: false,
-                          color: '#f2f2f2',
-                        },
-                        ticks: {
-                          beginAtZero: true,
-                          stepSize: 150
-                        }
-                      }],
-                      xAxes: [{
-                        ticks: {
-                          display: false
-                        },
-                        gridLines: {
-                          display: false
-                        }
-                      }]
-                    },
-                  }
-                });
-            </script> --}}
-
-            {{-- <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Recent Activities</h4>
+                        <h4>Grafik Palet Terpakai</h4>
                     </div>
                     <div class="card-body">
-                        <ul class="list-unstyled list-unstyled-border">
-                          <li class="media">
-                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-1.png" alt="avatar">
-                            <div class="media-body">
-                              <div class="float-right text-primary">Now</div>
-                              <div class="media-title">Farhan A Mujib</div>
-                              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                            </div>
-                          </li>
-                          <li class="media">
-                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-2.png" alt="avatar">
-                            <div class="media-body">
-                              <div class="float-right">12m</div>
-                              <div class="media-title">Ujang Maman</div>
-                              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                            </div>
-                          </li>
-                          <li class="media">
-                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-3.png" alt="avatar">
-                            <div class="media-body">
-                              <div class="float-right">17m</div>
-                              <div class="media-title">Rizal Fakhri</div>
-                              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                            </div>
-                          </li>
-                          <li class="media">
-                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-4.png" alt="avatar">
-                            <div class="media-body">
-                              <div class="float-right">21m</div>
-                              <div class="media-title">Alfa Zulkarnain</div>
-                              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-                            </div>
-                          </li>
-                        </ul>
-                        <div class="text-center pt-1 pb-1">
-                          <a href="#" class="btn btn-primary btn-lg btn-round">
-                            View All
-                          </a>
-                        </div>
-                      </div>
+                        {!! $chartPaletTerpakai->container() !!}
+                    </div>
                 </div>
-            </div> --}}
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Grafik Palet Kosong</h4>
+                    </div>
+                    <div class="card-body">
+                        {!! $chartPaletKosong->container() !!}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Grafik Kebutuhan Palet</h4>
+                    </div>
+                    <div class="card-body">
+                        {!! $chartPrediksi->container() !!}
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -291,45 +219,3 @@
         </div>
     </section>
 @endsection
-@push('customScript')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        $(document).ready(function() {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['November 2020', 'December 2020', 'January 2021', 'February 2021', 'March 2021', 'April 2021', 'May 2021', 'June 2021', 'July 2021', 'August 2021', 'September 2021', 'October 2021', 'November 2021', 'December 2021', 'January 2022', 'February 2022', 'March 2022', 'April 2022', 'May 2022', 'June 2022', 'July 2022', 'August 2022', 'September 2022', 'October 2022', 'November 2022', 'December 2022', 'January 2023', 'February 2023', 'March 2023', 'April 2023', 'May 2023', 'June 2023', 'July 2023', 'August 2023', 'September 2023', 'October 2023', 'November 2023', 'December 2023'],
-                    datasets: [{
-                        label: 'Stok Awal',
-                        data: [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800],
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 2,
-                        pointBackgroundColor: '#ffffff',
-                        pointRadius: 4
-                    },
-                    {
-                        label: 'Stok Akhir',
-                        data: [0, 120, 220, 320, 420, 520, 620, 720, 820, 920, 1020, 1120, 1220, 1320, 1420, 1520, 1620, 1720, 1820, 1920, 2020, 2120, 2220, 2320, 2420, 2520, 2620, 2720, 2820, 2920, 3020, 3120, 3220, 3320, 3420, 3520, 3620, 3720, 3820],
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2,
-                        pointBackgroundColor: '#ffffff',
-                        pointRadius: 4
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                callback: function(value) {
-                                    return Number(value.toFixed(0)); // Menampilkan nilai bulat tanpa desimal
-                                }
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
-@endpush

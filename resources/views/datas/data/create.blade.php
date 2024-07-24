@@ -37,8 +37,10 @@
                                 {{-- Keterangan --}}
                                 <div class="form-group">
                                     <label for="name">Keterangan</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                        name="name" placeholder="Enter Keterangan">
+                                    <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                                        <option value="TERPAKAI">TERPAKAI</option>
+                                        <option value="KOSONG">KOSONG</option>
+                                    </select>
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}

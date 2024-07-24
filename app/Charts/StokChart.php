@@ -40,7 +40,7 @@ class StokChart
 
         // Bangun chart
         return $this->chart->lineChart()
-            ->setTitle('Data Stok Akhir')
+            // ->setTitle('Data Stok Akhir')
             ->addData('Stok Akhir', $dataStokAkhir)
             ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
             ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
@@ -51,10 +51,12 @@ class StokChart
             ->setGrid();
     }
 
-    public function buildPaletKosongChart(): \ArielMejiaDev\LarapexCharts\LineChart
+    public function buildPaletTerpakaiChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        // Mengambil data terpakai dari database
-        $datas = DataPaletKosong::select('stok_akhir', 'tanggal')->get();
+        // Mengambil data stok akhir untuk palet terpakai dari database
+        $datas = Data::where('name', 'terpakai')
+        ->select('stok_akhir', 'tanggal')
+        ->get();
 
         // Inisialisasi array untuk terpakai dan tanggal bulan tahun
         $dataStokAkhir = [];
@@ -62,18 +64,21 @@ class StokChart
 
         // Mengisi array dengan data dari database
         foreach ($datas as $data) {
-            $dataStokAkhir[] = $data->stok_akhir;
+            $dataStokAkhir[] = round($data->stok_akhir); // Membulatkan nilai stok akhir
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
         // Hitung garis tren
         $trendline = $this->calculateTrendline($dataStokAkhir);
 
+        // Membulatkan nilai trendline
+        $trendline = array_map('round', $trendline);
+
         // Bangun chart
         return $this->chart->lineChart()
-            ->setTitle('Data Stok Akhir Kosong')
+            // ->setTitle('Data Stok Akhir Terpakai')
             ->addData('Stok Akhir', $dataStokAkhir)
-            ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
+            // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
             ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
             ->setColors(['#394eea', '#ff0000']) // Warna terpakai dan garis tren
@@ -82,10 +87,12 @@ class StokChart
             ->setGrid();
     }
 
-    public function buildPaletTerpakaiChart(): \ArielMejiaDev\LarapexCharts\LineChart
+    public function buildPaletKosongChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        // Mengambil data terpakai dari database
-        $datas = DataPaletTerpakai::select('stok_akhir', 'tanggal')->get();
+        // Mengambil data stok akhir untuk palet kosong dari database
+        $datas = Data::where('name', 'kosong')
+        ->select('stok_akhir', 'tanggal')
+        ->get();
 
         // Inisialisasi array untuk terpakai dan tanggal bulan tahun
         $dataStokAkhir = [];
@@ -93,18 +100,21 @@ class StokChart
 
         // Mengisi array dengan data dari database
         foreach ($datas as $data) {
-            $dataStokAkhir[] = $data->stok_akhir;
+            $dataStokAkhir[] = round($data->stok_akhir); // Membulatkan nilai stok akhir
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
         // Hitung garis tren
         $trendline = $this->calculateTrendline($dataStokAkhir);
 
+        // Membulatkan nilai trendline
+        $trendline = array_map('round', $trendline);
+
         // Bangun chart
         return $this->chart->lineChart()
-            ->setTitle('Data Stok Akhir Terpakai')
+            // ->setTitle('Data Stok Akhir Kosong')
             ->addData('Stok Akhir', $dataStokAkhir)
-            ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
+            // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
             ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
             ->setColors(['#394eea', '#ff0000']) // Warna terpakai dan garis tren
@@ -155,7 +165,7 @@ class StokChart
         }
 
         return $this->chart->lineChart()
-            ->setTitle('Prediksi Kebutuhan Palet')
+            // ->setTitle('Prediksi Kebutuhan Palet')
             ->addData('Prediksi', $values)
             ->setXAxis($dates)
             ->setHeight(400)
@@ -164,6 +174,4 @@ class StokChart
             ->setFontFamily('Nunito, Segoe UI, Arial')
             ->setGrid();
     }
-
-
 }
