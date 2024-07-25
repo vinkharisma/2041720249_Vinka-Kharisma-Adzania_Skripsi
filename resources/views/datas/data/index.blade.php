@@ -44,12 +44,12 @@
                                 <div class="custom-file">
                                     <form action="{{ route('data.import') }}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-                                        <div class="form-row" style="margin-left: 0px; margin-right: 0px;">
+                                        <div class="form-row" style="padding-left: 5px !important;">
                                             <div class="form-group col-md-10">
-                                                <label style="width: 1126px" class="custom-file-label" for="file-upload">Choose File</label>
-                                                <input style="width: 1050px" type="file" id="file-upload" class="custom-file-input" name="file" required="required" accept=".xlsx,.xls">
+                                                <label class="custom-file-label" for="file-upload">Choose File</label>
+                                                <input type="file" id="file-upload" class="custom-file-input" name="file" required="required" accept=".xlsx,.xls">
                                             </div>
-                                                <div style="padding-left: 90px; padding-top: 4px;" class="footer text-right">
+                                                <div style="padding-left: 0px; padding-right: 15px; padding-top: 4px;" class="form-group col-md-2 text-right">
                                                     <button class="btn btn-primary">Import File</button>
                                                 </div>
                                         </div>

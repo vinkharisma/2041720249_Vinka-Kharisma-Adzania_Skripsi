@@ -60,10 +60,10 @@
                                 <form id="search" method="GET" action="{{ route('user.index') }}">
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
-                                            <label for="search">Search</label>
+                                            <label for="search" class="sr-only">Search</label>
                                             <input type="text" name="search" class="form-control" id="search" placeholder="Search by Name, Email, No Pegawai, Departemen, No HP">
                                         </div>
-                                        <div class="text-right" style="padding-top: 30px">
+                                        <div class="form-group col-md-2 text-right" style="padding-left: 0px; padding-right: 15px;">
                                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
                                             <a class="btn btn-secondary" href="{{ route('user.index') }}">Reset</a>
                                         </div>
