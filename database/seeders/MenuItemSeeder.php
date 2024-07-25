@@ -25,6 +25,7 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'dashboard',
                     'menu_group_id' => 1,
                 ],
+
                 // Data
                 [
                     'name' => 'Stok Data List',
@@ -44,13 +45,21 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'palet-terpakai.index',
                     'menu_group_id' => 2,
                 ],
+
                 // Prediction
                 [
                     'name' => 'Prediction Algorithm',
-                    'route' => 'prediction-management/prediction',
-                    'permission_name' => 'prediction.index',
+                    'route' => 'prediction-management/algorithm',
+                    'permission_name' => 'algorithm.index',
                     'menu_group_id' => 3,
                 ],
+                [
+                    'name' => 'Prediction Result',
+                    'route' => 'prediction-management/result',
+                    'permission_name' => 'result.index',
+                    'menu_group_id' => 3,
+                ],
+
                 // User List
                 [
                     'name' => 'User List',
@@ -58,6 +67,7 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'user.index',
                     'menu_group_id' => 4,
                 ],
+
                 // Role List
                 [
                     'name' => 'Role List',
@@ -86,6 +96,7 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'assign.user.index',
                     'menu_group_id' => 5,
                 ],
+
                 // Menu Group
                 [
                     'name' => 'Menu Group',

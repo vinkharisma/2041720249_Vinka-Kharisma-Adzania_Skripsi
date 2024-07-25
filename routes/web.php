@@ -8,6 +8,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PredictionController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -124,8 +125,21 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //     // Route::get('prediction', [PredictionController::class, 'index'])->name('predictions.index');
     // });
 
-    Route::get('/prediction-management/prediction', function () {
-        return view('predictions.index');
-    });
+    // Route::get('/prediction-management/prediction', function () {
+    //     return view('predictions.index');
+    // });
 
+    // // Prediction Management
+    // Route::prefix('prediction-management')->group(function () {
+    //     Route::get('prediction', [PredictionController::class, 'index'])->name('algorithms.index');
+    //     Route::get('result', [PredictionController::class, 'result'])->name('result.index');
+    // });
+
+    // Prediction Management
+    Route::prefix('prediction-management')->group(function () {
+        Route::get('algorithm', function () {
+            return view('predictions.index');
+        })->name('predictions.index');
+        Route::get('result', [ResultController::class, 'index'])->name('result.index');
+    });
 });

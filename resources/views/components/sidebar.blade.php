@@ -19,7 +19,7 @@
                         @foreach ($item->menuItems as $menuItem)
                             @can($menuItem->permission_name)
                                 <li>
-                                    <a class="nav-link " href="{{ url($menuItem->route) }}">{{ $menuItem->name }}</a>
+                                    <a class="nav-link" href="{{ url($menuItem->route) }}">{{ $menuItem->name }}</a>
                                 </li>
                             @endcan
                         @endforeach

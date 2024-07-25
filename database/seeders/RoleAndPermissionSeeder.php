@@ -22,11 +22,11 @@ class RoleAndPermissionSeeder extends Seeder
 
         // Create Permissions (database/seeders/MenuGroupSeeder)
         Permission::create(['name' => 'dashboard']);
+        Permission::create(['name' => 'data.management']);
+        Permission::create(['name' => 'prediction.management']);
         Permission::create(['name' => 'user.management']);
         Permission::create(['name' => 'role.permission.management']);
         Permission::create(['name' => 'menu.management']);
-        Permission::create(['name' => 'data.management']);
-        Permission::create(['name' => 'prediction.management']);
 
         // Data Palet
         Permission::create(['name' => 'data.index']);
@@ -51,6 +51,22 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'palet-kosong.destroy']);
         Permission::create(['name' => 'palet-kosong.import']);
         Permission::create(['name' => 'palet-kosong.export']);
+
+        // Prediction Algorithm
+        Permission::create(['name' => 'algorithm.index']);
+        Permission::create(['name' => 'algorithm.create']);
+        Permission::create(['name' => 'algorithm.edit']);
+        Permission::create(['name' => 'algorithm.destroy']);
+        Permission::create(['name' => 'algorithm.import']);
+        Permission::create(['name' => 'algorithm.export']);
+
+        // Prediction Result
+        Permission::create(['name' => 'result.index']);
+        Permission::create(['name' => 'result.create']);
+        Permission::create(['name' => 'result.edit']);
+        Permission::create(['name' => 'result.destroy']);
+        Permission::create(['name' => 'result.import']);
+        Permission::create(['name' => 'result.export']);
 
         // User
         Permission::create(['name' => 'user.index']);
@@ -99,14 +115,6 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'menu-item.edit']);
         Permission::create(['name' => 'menu-item.destroy']);
 
-        // Prediction
-        Permission::create(['name' => 'prediction.index']);
-        Permission::create(['name' => 'prediction.create']);
-        Permission::create(['name' => 'prediction.edit']);
-        Permission::create(['name' => 'prediction.destroy']);
-        Permission::create(['name' => 'prediction.import']);
-        Permission::create(['name' => 'prediction.export']);
-
         // Create Roles Super Admin
         // $role = Role::create(['name' => 'super-admin']);
         // $role->givePermissionTo(Permission::all());
@@ -137,8 +145,9 @@ class RoleAndPermissionSeeder extends Seeder
             'data.index', 'data.create', 'data.edit', 'data.destroy', 'data.import', 'data.export',
             // 'palet-kosong.index', 'palet-kosong.create', 'palet-kosong.edit', 'palet-kosong.destroy', 'palet-kosong.import', 'palet-kosong.export',
             // 'palet-terpakai.index', 'palet-terpakai.create', 'palet-terpakai.edit', 'palet-terpakai.destroy', 'palet-terpakai.import', 'palet-terpakai.export',
+            'algorithm.index', 'algorithm.create', 'algorithm.edit', 'algorithm.destroy', 'algorithm.import', 'algorithm.export',
+            'result.index', 'result.create', 'result.edit', 'result.destroy', 'result.import', 'result.export',
             'user.index', 'user.create', 'user.edit', 'user.destroy', 'user.import', 'user.export',
-            'prediction.index', 'prediction.create', 'prediction.edit', 'prediction.destroy', 'prediction.import', 'prediction.export'
         ]);
 
         // Create Admin
