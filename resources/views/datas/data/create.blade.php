@@ -25,7 +25,7 @@
                                 {{-- Tanggal --}}
                                 <div class="form-group">
                                     <label for="tanggal">Tanggal</label>
-                                    <input type="text" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
+                                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
                                         name="tanggal" placeholder="Enter Tanggal">
                                     @error('tanggal')
                                         <div class="invalid-feedback">
@@ -132,4 +132,16 @@
         </div>
     </section>
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tanggal').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
 @endsection
