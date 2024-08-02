@@ -1,8 +1,5 @@
 flask
 pandas
-matplotlib
 statsmodels
 pmdarima
 scipy
-seaborn
-sklearn
