@@ -36,7 +36,8 @@
                                 <a class="btn btn-icon btn-primary search" style="color: #ffff">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     Search Data</a>
-                                <a class="btn btn-info btn-primary" href="{{ route('datas.prediction', ['type' => 'data']) }}" style="color: #ffff">Forecasting</a>
+                                <!-- Tombol Forecasting -->
+                                <a class="btn btn-info btn-primary" href="{{ route('result.index') }}" style="color: #ffff">Forecasting</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -166,4 +167,6 @@
 @endpush
 
 @push('customStyle')
+    {{-- <link rel="stylesheet" href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css"> --}}
 @endpush

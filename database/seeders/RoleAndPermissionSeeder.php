@@ -145,7 +145,7 @@ class RoleAndPermissionSeeder extends Seeder
             'data.index', 'data.create', 'data.edit', 'data.destroy', 'data.import', 'data.export',
             // 'palet-kosong.index', 'palet-kosong.create', 'palet-kosong.edit', 'palet-kosong.destroy', 'palet-kosong.import', 'palet-kosong.export',
             // 'palet-terpakai.index', 'palet-terpakai.create', 'palet-terpakai.edit', 'palet-terpakai.destroy', 'palet-terpakai.import', 'palet-terpakai.export',
-            'algorithm.index', 'algorithm.create', 'algorithm.edit', 'algorithm.destroy', 'algorithm.import', 'algorithm.export',
+            // 'algorithm.index', 'algorithm.create', 'algorithm.edit', 'algorithm.destroy', 'algorithm.import', 'algorithm.export',
             'result.index', 'result.create', 'result.edit', 'result.destroy', 'result.import', 'result.export',
             'user.index', 'user.create', 'user.edit', 'user.destroy', 'user.import', 'user.export',
         ]);

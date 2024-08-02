@@ -5,6 +5,7 @@ namespace App\Charts;
 use App\Models\Data;
 use App\Models\DataPaletKosong;
 use App\Models\DataPaletTerpakai;
+use App\Models\Prediction;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
 
@@ -32,17 +33,17 @@ class StokChart
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
-        // Hitung garis tren
-        $trendline = $this->calculateTrendline($dataStokAkhir);
+        // // Hitung garis tren
+        // $trendline = $this->calculateTrendline($dataStokAkhir);
 
-        // Membulatkan nilai trendline
-        $trendline = array_map('round', $trendline);
+        // // Membulatkan nilai trendline
+        // $trendline = array_map('round', $trendline);
 
         // Bangun chart
         return $this->chart->lineChart()
             // ->setTitle('Data Stok Akhir')
             ->addData('Stok Akhir', $dataStokAkhir)
-            ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
+            // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
             ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
             ->setColors(['#394eea', '#ff0000']) // Warna stok akhir dan garis tren
@@ -68,11 +69,11 @@ class StokChart
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
-        // Hitung garis tren
-        $trendline = $this->calculateTrendline($dataStokAkhir);
+        // // Hitung garis tren
+        // $trendline = $this->calculateTrendline($dataStokAkhir);
 
-        // Membulatkan nilai trendline
-        $trendline = array_map('round', $trendline);
+        // // Membulatkan nilai trendline
+        // $trendline = array_map('round', $trendline);
 
         // Bangun chart
         return $this->chart->lineChart()
@@ -104,11 +105,11 @@ class StokChart
             $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
         }
 
-        // Hitung garis tren
-        $trendline = $this->calculateTrendline($dataStokAkhir);
+        // // Hitung garis tren
+        // $trendline = $this->calculateTrendline($dataStokAkhir);
 
-        // Membulatkan nilai trendline
-        $trendline = array_map('round', $trendline);
+        // // Membulatkan nilai trendline
+        // $trendline = array_map('round', $trendline);
 
         // Bangun chart
         return $this->chart->lineChart()
@@ -123,53 +124,55 @@ class StokChart
             ->setGrid();
     }
 
-    protected function calculateTrendline($dataStokAkhir)
+    // protected function calculateTrendline($dataStokAkhir)
+    // {
+    //     $n = count($dataStokAkhir);
+
+    //     // Hitung gradien (slope) dan intercept (konstanta)
+    //     $sumX = 0;
+    //     $sumY = 0;
+    //     $sumXY = 0;
+    //     $sumX2 = 0;
+
+    //     for ($i = 0; $i < $n; $i++) {
+    //         $sumX += $i + 1;
+    //         $sumY += $dataStokAkhir[$i];
+    //         $sumXY += ($i + 1) * $dataStokAkhir[$i];
+    //         $sumX2 += pow(($i + 1), 2);
+    //     }
+
+    //     $m = ($n * $sumXY - $sumX * $sumY) / ($n * $sumX2 - pow($sumX, 2));
+    //     $c = ($sumY - $m * $sumX) / $n;
+
+    //     // Bangun array data untuk garis tren
+    //     $trendline = [];
+    //     for ($i = 0; $i < $n; $i++) {
+    //         $trendline[] = $m * ($i + 1) + $c;
+    //     }
+
+    //     return $trendline;
+    // }
+
+    public function buildPrediksiChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        $n = count($dataStokAkhir);
+        // Mengambil data stok akhir dari database
+        $prediksiData = Prediction::select('tanggal', 'hasil')->get();
 
-        // Hitung gradien (slope) dan intercept (konstanta)
-        $sumX = 0;
-        $sumY = 0;
-        $sumXY = 0;
-        $sumX2 = 0;
-
-        for ($i = 0; $i < $n; $i++) {
-            $sumX += $i + 1;
-            $sumY += $dataStokAkhir[$i];
-            $sumXY += ($i + 1) * $dataStokAkhir[$i];
-            $sumX2 += pow(($i + 1), 2);
-        }
-
-        $m = ($n * $sumXY - $sumX * $sumY) / ($n * $sumX2 - pow($sumX, 2));
-        $c = ($sumY - $m * $sumX) / $n;
-
-        // Bangun array data untuk garis tren
-        $trendline = [];
-        for ($i = 0; $i < $n; $i++) {
-            $trendline[] = $m * ($i + 1) + $c;
-        }
-
-        return $trendline;
-    }
-
-    public function buildPrediksiChart($prediksiData): \ArielMejiaDev\LarapexCharts\LineChart
-    {
         // Inisialisasi array untuk tanggal dan nilai prediksi
-        $dates = [];
-        $values = [];
+        $dataTanggal = [];
+        $dataPrediksi = [];
 
         // Mengisi array dengan data dari $prediksiData
         foreach ($prediksiData as $data) {
-            $dates[] = $data['Tanggal'];
-            $values[] = round($data['Prediksi Kebutuhan Palet']); // Membulatkan nilai
+            $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y');
+            $dataPrediksi[] = round($data->hasil);
         }
 
         return $this->chart->lineChart()
-            // ->setTitle('Prediksi Kebutuhan Palet')
-            ->addData('Prediksi', $values)
-            ->setXAxis($dates)
+            ->addData('Prediksi Kebutuhan Palet', $dataPrediksi)
+            ->setXAxis($dataTanggal)
             ->setHeight(400)
-            ->setColors(['#394eea'])
+            ->setColors(['#47c363'])
             ->setFontColor('#6c757d')
             ->setFontFamily('Nunito, Segoe UI, Arial')
             ->setGrid();

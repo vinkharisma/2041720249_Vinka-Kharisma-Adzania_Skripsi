@@ -20,8 +20,8 @@
                 <span>Data Management</span></a>
             <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{ route('data.index') }}">Data Table</a></li>
-                <li><a class="nav-link" href="{{ route('palet-terpakai.index') }}">Data Table</a></li>
-                <li><a class="nav-link" href="{{ route('palet-kosong.index') }}">Data Table</a></li>
+                {{-- <li><a class="nav-link" href="{{ route('palet-terpakai.index') }}">Data Table</a></li>
+                <li><a class="nav-link" href="{{ route('palet-kosong.index') }}">Data Table</a></li> --}}
             </ul>
         </li>
 

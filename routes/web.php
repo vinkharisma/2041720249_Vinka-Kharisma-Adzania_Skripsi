@@ -140,6 +140,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('algorithm', function () {
             return view('predictions.index');
         })->name('predictions.index');
+
         Route::get('result', [ResultController::class, 'index'])->name('result.index');
+        // Route::get('predict', [ResultController::class, 'predict'])->name('result.predict');
     });
+
+    // // Tambahkan rute baru di sini
+    // Route::get('/predict', [PredictionController::class, 'predict'])->name('predict');
 });

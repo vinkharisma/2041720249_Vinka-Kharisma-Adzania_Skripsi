@@ -7,7 +7,6 @@
         {{-- <title>{{ config('app.name') }} </title> --}}
         <title> Pallet Stock Prediction </title>
 
-
         <!-- General CSS Files -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,11 +15,14 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
 
         <!-- CSS Libraries -->
+        <link rel="stylesheet" href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
         @stack('customStyle')
 
         <!-- Template CSS -->
         <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/components.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.bootstrap4.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Bootstrap Datepicker CSS -->
@@ -180,7 +182,7 @@
 
                         <li class="dropdown"><a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+                                <img alt="image" src="{{ asset('/assets/img/avatar/avatar-4.png') }}" class="rounded-circle mr-1">
                                 <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -243,6 +245,9 @@
         <!-- JS Libraies -->
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{ asset('/assets/js/page/modules-sweetalert.js') }}"></script>
+        <script src="{{ asset('/node_modules/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js') }}"></script>
 
         <!-- Template JS File -->
         <script src="{{ asset('/assets/js/scripts.js') }}"></script>

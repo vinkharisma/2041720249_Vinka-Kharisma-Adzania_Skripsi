@@ -35,26 +35,24 @@
                                             <th class="text-center">Prediksi Kebutuhan Palet</th>
                                         </tr>
 
-                                        {{-- @foreach ($datas as $key => $data)
+                                        @if(!empty($predictions))
+                                            @foreach($predictions as $index => $prediction)
+                                                <tr>
+                                                    <td class="text-center">{{ $index + 1 }}</td>
+                                                    <td>{{ $dates[$index] }}</td>
+                                                    <td>{{ $prediction }}</td>
+                                                </tr>
+                                            @endforeach
+                                        @else
                                             <tr>
-                                                <td class="text-center">{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
-                                                <td>{{ $data->tanggal }}</td>
-                                                <td>{{ $data->name }}</td>
-                                                <td class="text-right">{{ $data->stok_awal }}</td>
-                                                <td class="text-right">{{ $data->masuk }}</td>
-                                                <td class="text-right">{{ $data->keluar }}</td>
-                                                <td class="text-right">{{ $data->stok_akhir }}</td>
-                                                <td class="text-right">{{ $data->jumlah_stok_palet_baik }}</td>
-                                                <td class="text-right">{{ $data->jumlah_stok_palet_rusak}}</td>
-                                                <td>{{ $data->created_at}}</td>
-
+                                                <td colspan="3">No prediction data available.</td>
                                             </tr>
-                                        @endforeach --}}
+                                        @endif
                                     </tbody>
                                 </table>
-                                {{-- <div class="d-flex justify-content-center">
-                                    {{ $datas->withQueryString()->links() }}
-                                </div> --}}
+                                <div class="text-center">
+                                    <h5>MAPE: {{ $mape }}%</h5>
+                                </div>
                             </div>
                         </div>
                     </div>

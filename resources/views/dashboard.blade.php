@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Grafik Palet Terpakai</h4>
@@ -162,7 +162,7 @@
                         {!! $chartPaletKosong->container() !!}
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
