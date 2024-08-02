@@ -33,7 +33,7 @@ class ResultController extends Controller
 
         // Kirim data mingguan ke Flask
         $client = new Client();
-        $response = $client->post('http://127.0.0.1:5000/predict', [
+        $response = $client->post('https://api.prediksipalet.my.id/predict', [
             'json' => [
                 'dates' => array_column($dataMingguan, 'tanggal'),
                 'stok_akhir' => array_column($dataMingguan, 'stok_akhir')
