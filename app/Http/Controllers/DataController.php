@@ -164,10 +164,10 @@ class DataController extends Controller
         $file = $request->file('file');
         $namaFile = $file->getClientOriginalName();
         // $file->move('Data', $namaFile);
-        $file->move(asset('Data/'.$namaFile));
+        $file->move(asset('/data/'.$namaFile));
         // $file->move(public_path('/data/'.$namaFile));
 
-        Excel::import(new DatasImport, asset('Data/'.$namaFile));
+        Excel::import(new DatasImport, asset('/data/'.$namaFile));
         return redirect()->route('data.index')->with('success', 'Datas Imported Successfully');
     }
 
