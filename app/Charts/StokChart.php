@@ -118,7 +118,7 @@ class StokChart
             // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
             ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
-            ->setColors(['#394eea', '#ff0000']) // Warna terpakai dan garis tren
+            ->setColors(['#ffa426', '#ff0000']) // Warna terpakai dan garis tren
             ->setFontColor('#6c757d')
             ->setFontFamily('Nunito, Segoe UI, Arial')
             ->setGrid();

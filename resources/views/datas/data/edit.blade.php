@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="name">Keterangan</label>
                             <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                                {{-- <option value="TERPAKAI" {{ $data->name == 'TERPAKAI' ? 'selected' : '' }}>TERPAKAI</option> --}}
+                                <option value="TERPAKAI" {{ $data->name == 'TERPAKAI' ? 'selected' : '' }}>TERPAKAI</option>
                                 <option value="KOSONG" {{ $data->name == 'KOSONG' ? 'selected' : '' }}>KOSONG</option>
                             </select>
                             @error('name')

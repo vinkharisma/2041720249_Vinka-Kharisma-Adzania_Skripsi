@@ -8,7 +8,7 @@ import statsmodels.api as sm
 
 app = Flask(__name__)
 
-# Cek versi scipy
+# Cek versi
 import scipy
 import pmdarima
 import statsmodels

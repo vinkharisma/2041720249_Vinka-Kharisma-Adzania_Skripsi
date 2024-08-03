@@ -34,6 +34,14 @@ class DashboardController extends Controller
         $jumlah_stok_palet_baik = $data_last->jumlah_stok_palet_baik;
         $jumlah_stok_palet_rusak = $data_last->jumlah_stok_palet_rusak;
 
+        // Mengambil data paling akhir untuk stok palet terpakai dan kosong
+        $stokPaletTerpakai = Data::where('name', 'terpakai')->orderBy('tanggal', 'desc')->first();
+        $stokPaletKosong = Data::where('name', 'kosong')->orderBy('tanggal', 'desc')->first();
+
+        // Menghitung total stok palet (Dipakai + Kosong)
+        $totalStokPalet = ($stokPaletTerpakai->stok_akhir ?? 0) + ($stokPaletKosong->stok_akhir ?? 0);
+
+
         // Bangun chart
         $chartStokAkhir = $chart->buildStokAkhirChart($dataStok);
         $chartPaletKosong = $chart->buildPaletKosongChart($dataPaletKosong);
@@ -69,6 +77,10 @@ class DashboardController extends Controller
             'stok_akhir' => $stok_akhir,
             'jumlah_stok_palet_baik' => $jumlah_stok_palet_baik,
             'jumlah_stok_palet_rusak' => $jumlah_stok_palet_rusak,
+
+            'total_stok_palet' => $totalStokPalet,
+            'stok_terpakai' => $stokPaletTerpakai->stok_akhir ?? 0,
+            'stok_kosong' => $stokPaletKosong->stok_akhir ?? 0,
         ]);
     }
 }

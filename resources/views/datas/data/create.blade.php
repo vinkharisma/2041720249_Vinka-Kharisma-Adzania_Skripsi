@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="name">Keterangan</label>
                                     <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                                        {{-- <option value="TERPAKAI">TERPAKAI</option> --}}
+                                        <option value="TERPAKAI">TERPAKAI</option>
                                         <option value="KOSONG">KOSONG</option>
                                     </select>
                                     @error('name')
