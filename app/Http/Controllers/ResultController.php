@@ -45,7 +45,7 @@ class ResultController extends Controller
 
         // Periksa jika respons memiliki 'forecast' dan 'mape'
         $predictions = $result['forecast'] ?? [];
-        $mape = $result['mape'] ?? 'N/A';
+        $mape = isset($result['mape']) ? number_format($result['mape'], 2) : 'N/A';
 
         // Tentukan tanggal prediksi (mingguan setelah data terakhir)
         $lastDate = end($dataMingguan)['tanggal'];

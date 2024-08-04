@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('jumlah_stok_palet_baik');
             $table->string('jumlah_stok_palet_rusak');
             $table->timestamps();
+
+            // Menambahkan unique constraint pada kombinasi tanggal dan name
+            $table->unique(['tanggal', 'name']);
         });
     }
 
