@@ -14,6 +14,7 @@ class ResultController extends Controller
     public function index()
     {
         // Ambil data harian dari database
+        // $dataHarian = DB::table('datas')->get();
         $dataHarian = DB::table('datas')->where('name', 'KOSONG')->get();
 
         // Ubah data menjadi format mingguan (Minggu ke Sabtu)

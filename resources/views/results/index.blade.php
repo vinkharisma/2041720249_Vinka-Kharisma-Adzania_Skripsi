@@ -32,7 +32,7 @@
                                         <tr>
                                             <th class="text-center">ID</th>
                                             <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Prediksi Kebutuhan Palet</th>
+                                            <th class="text-center">Hasil Prediksi</th>
                                         </tr>
 
                                         @if(!empty($predictions))

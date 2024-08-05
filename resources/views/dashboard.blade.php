@@ -167,7 +167,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Palet Dipakai</h4>
+                        <h4>Grafik Stok Palet Dipakai Per Bulan</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPaletTerpakai->container() !!}
@@ -177,7 +177,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Palet Kosong</h4>
+                        <h4>Grafik Stok Palet Kosong Per Bulan</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPaletKosong->container() !!}
@@ -187,7 +187,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Kebutuhan Palet</h4>
+                        <h4>Grafik Prediksi Kebutuhan Palet Per Bulan</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPrediksi->container() !!}
