@@ -79,8 +79,8 @@ class DashboardController extends Controller
             'jumlah_stok_palet_rusak' => $jumlah_stok_palet_rusak,
 
             'total_stok_palet' => $totalStokPalet,
-            'stok_terpakai' => $stokPaletTerpakai->stok_akhir ?? 0,
-            'stok_kosong' => $stokPaletKosong->stok_akhir ?? 0,
+        'stok_terpakai' => $stokPaletTerpakai->stok_akhir ?? 0,
+        'stok_kosong' => $stokPaletKosong->stok_akhir ?? 0,
         ]);
     }
 }

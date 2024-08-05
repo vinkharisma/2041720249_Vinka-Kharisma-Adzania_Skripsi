@@ -57,22 +57,26 @@ class StokChart
     {
         // Mengambil data stok akhir untuk palet terpakai dari database
         $datas = Data::where('name', 'terpakai')
-        ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))
-        ->orderBy('tanggal')
-        ->get()
-        ->groupBy('bulan')
-        ->map(function ($item) {
-            return $item->last();
-        });
+        ->select('stok_akhir', 'tanggal')
+        ->get();
+        // ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))
+        // ->orderBy('tanggal')
+        // ->get()
+        // ->groupBy('bulan')
+        // ->map(function ($item) {
+        //     return $item->last();
+        // });
 
         // Inisialisasi array untuk terpakai dan tanggal bulan tahun
         $dataStokAkhir = [];
-        $dataBulan = [];
+        $dataTanggal = [];
+        // $dataBulan = [];
 
         // Mengisi array dengan data dari database
         foreach ($datas as $data) {
             $dataStokAkhir[] = round($data->stok_akhir); // Membulatkan nilai stok akhir
-            $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y'); // Format bulan
+            $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
+            // $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y'); // Format bulan
         }
 
         // // Hitung garis tren
@@ -86,7 +90,8 @@ class StokChart
             // ->setTitle('Data Stok Akhir Terpakai')
             ->addData('Stok Akhir', $dataStokAkhir)
             // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
-            ->setXAxis($dataBulan) // Menggunakan data tanggal bulan tahun
+            ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
+            // ->setXAxis($dataBulan) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
             ->setColors(['#394eea', '#ff0000']) // Warna terpakai dan garis tren
             ->setFontColor('#6c757d')
@@ -98,22 +103,26 @@ class StokChart
     {
         // Mengambil data stok akhir untuk palet kosong dari database
         $datas = Data::where('name', 'kosong')
-        ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))
-        ->orderBy('tanggal')
-        ->get()
-        ->groupBy('bulan')
-        ->map(function ($item) {
-            return $item->last();
-        });
+        ->select('stok_akhir', 'tanggal')
+        ->get();
+        // ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))
+        // ->orderBy('tanggal')
+        // ->get()
+        // ->groupBy('bulan')
+        // ->map(function ($item) {
+        //     return $item->last();
+        // });
 
         // Inisialisasi array untuk terpakai dan tanggal bulan tahun
         $dataStokAkhir = [];
-        $dataBulan = [];
+        $dataTanggal = [];
+        // $dataBulan = [];
 
         // Mengisi array dengan data dari database
         foreach ($datas as $data) {
             $dataStokAkhir[] = round($data->stok_akhir); // Membulatkan nilai stok akhir
-            $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y'); // Format bulan
+            $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y'); // Format tanggal bulan tahun
+            // $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y'); // Format bulan
         }
 
         // // Hitung garis tren
@@ -127,7 +136,8 @@ class StokChart
             // ->setTitle('Data Stok Akhir Kosong')
             ->addData('Stok Akhir', $dataStokAkhir)
             // ->addData('Trend Line', $trendline) // Tambahkan garis tren sebagai series tambahan
-            ->setXAxis($dataBulan) // Menggunakan data tanggal bulan tahun
+            ->setXAxis($dataTanggal) // Menggunakan data tanggal bulan tahun
+            // ->setXAxis($dataBulan) // Menggunakan data tanggal bulan tahun
             ->setHeight(400)
             ->setColors(['#ffa426', '#ff0000']) // Warna terpakai dan garis tren
             ->setFontColor('#6c757d')
