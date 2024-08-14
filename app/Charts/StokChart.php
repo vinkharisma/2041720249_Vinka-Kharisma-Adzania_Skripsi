@@ -176,27 +176,33 @@ class StokChart
 
     public function buildPrediksiChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        // Mengambil data prediksi dari database dan mengelompokkan berdasarkan bulan
-        $prediksiData = Prediction::select(
-            DB::raw('SUM(hasil) as hasil'),
-            DB::raw('DATE_FORMAT(tanggal, "%Y-%m") as bulan')
-        )
-        ->groupBy('bulan')
-        ->get();
+        // Mengambil data stok akhir dari database
+        $prediksiData = Prediction::select('tanggal', 'hasil')->get();
+
+        // // Mengambil data prediksi dari database dan mengelompokkan berdasarkan bulan
+        // $prediksiData = Prediction::select(
+        //     DB::raw('SUM(hasil) as hasil'),
+        //     DB::raw('DATE_FORMAT(tanggal, "%Y-%m") as bulan')
+        // )
+        // ->groupBy('bulan')
+        // ->get();
 
         // Inisialisasi array untuk tanggal dan nilai prediksi
-        $dataBulan = [];
+        $dataTanggal = [];
+        // $dataBulan = [];
         $dataPrediksi = [];
 
         // Mengisi array dengan data dari $prediksiData
         foreach ($prediksiData as $data) {
-            $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y');
+            $dataTanggal[] = Carbon::parse($data->tanggal)->format('d M Y');
+            // $dataBulan[] = Carbon::createFromFormat('Y-m', $data->bulan)->format('M Y');
             $dataPrediksi[] = round($data->hasil);
         }
 
         return $this->chart->lineChart()
             ->addData('Prediksi Kebutuhan Palet', $dataPrediksi)
-            ->setXAxis($dataBulan)
+            ->setXAxis($dataTanggal)
+            // ->setXAxis($dataBulan)
             ->setHeight(400)
             ->setColors(['#47c363'])
             ->setFontColor('#6c757d')
