@@ -35,7 +35,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header" style="padding-top: 15px !important; border-bottom-left-radius: 3px !important; border-bottom-right-radius: 3px !important; padding-bottom: 10px !important;">
-                            <h4>Total Stok Palet</h4>
+                            <h4>Total Pallet Stock</h4>
                             <div class="card-body">
                                 {{ $total_stok_palet }}
                                 {{-- {{ $stok_awal }} --}}
@@ -57,7 +57,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header" style="padding-top: 15px !important; border-bottom-left-radius: 3px !important; border-bottom-right-radius: 3px !important; padding-bottom: 10px !important;">
-                            <h4>Stok Palet Dipakai</h4>
+                            <h4>Used Pallets Stock</h4>
                             <div class="card-body">
                                 {{ $stok_terpakai }}
                                 {{-- {{ $stok_akhir }} --}}
@@ -79,7 +79,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header" style="padding-top: 15px !important; border-bottom-left-radius: 3px !important; border-bottom-right-radius: 3px !important; padding-bottom: 10px !important;">
-                            <h4>Stok Palet Kosong</h4>
+                            <h4>Empty Pallets Stock</h4>
                             <div class="card-body">
                                 {{ $stok_kosong }}
                                 {{-- {{ $jumlah_stok_palet_baik }} --}}
@@ -101,7 +101,7 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header" style="padding-top: 15px !important; border-bottom-left-radius: 3px !important; border-bottom-right-radius: 3px !important; padding-bottom: 10px !important;">
-                            <h4>Palet Rusak Kosong</h4>
+                            <h4>Empty Damaged Pallet</h4>
                             <div class="card-body">
                                 {{ $jumlah_stok_palet_rusak }}
                             </div>
@@ -167,7 +167,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Stok Palet Dipakai</h4>
+                        <h4>Stock Chart of Pallets in Use</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPaletTerpakai->container() !!}
@@ -177,7 +177,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Stok Palet Kosong</h4>
+                        <h4>Stock Chart of Pallets in Empty</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPaletKosong->container() !!}
@@ -187,7 +187,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik Prediksi Kebutuhan Palet</h4>
+                        <h4>Pallet Requirement Prediction Chart</h4>
                     </div>
                     <div class="card-body">
                         {!! $chartPrediksi->container() !!}

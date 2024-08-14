@@ -31,8 +31,8 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Hasil Prediksi</th>
+                                            <th class="text-center">Date</th>
+                                            <th class="text-center">Prediction Results</th>
                                         </tr>
 
                                         @if(!empty($predictions))

@@ -48,7 +48,7 @@
 
                         {{-- No Pegawai --}}
                         <div class="form-group">
-                            <label for="no_pegawai">No Pegawai</label>
+                            <label for="no_pegawai">Employee Number</label>
                             <input type="text" class="form-control @error('no_pegawai') is-invalid @enderror" id="no_pegawai"
                                 name="no_pegawai" value="{{ $user->no_pegawai }}">
                             @error('no_pegawai')
@@ -60,7 +60,7 @@
 
                         {{-- Departemen --}}
                         <div class="form-group">
-                            <label for="departemen">Departemen</label>
+                            <label for="departemen">Department</label>
                             <input type="text" class="form-control @error('departemen') is-invalid @enderror" id="departemen"
                                 name="departemen" value="{{ $user->departemen }}">
                             @error('departemen')
@@ -72,7 +72,7 @@
 
                         {{-- No HP --}}
                         <div class="form-group">
-                            <label for="no_hp">No HP</label>
+                            <label for="no_hp">Phone Number</label>
                             <input type="text" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp"
                                 name="no_hp" value="{{ $user->no_hp }}">
                             @error('no_hp')

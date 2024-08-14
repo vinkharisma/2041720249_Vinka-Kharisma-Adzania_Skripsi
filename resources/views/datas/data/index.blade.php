@@ -63,13 +63,13 @@
                                         <!-- Data Name Input -->
                                         <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
                                             <label for="name" class="sr-only">Keterangan</label>
-                                            <input style="width: 100%;" type="text" name="name" class="form-control" id="name" placeholder="Keterangan">
+                                            <input style="width: 100%;" type="text" name="name" class="form-control" id="name" placeholder="Description">
                                         </div>
 
                                         <!-- Tanggal Input -->
                                         <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
                                             <label for="tanggal" class="sr-only">Tanggal</label>
-                                            <input style="width: 100%;" type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Tanggal (YYYY, YYYY-MM, YYYY-MM-DD)">
+                                            <input style="width: 100%;" type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Date (YYYY, YYYY-MM, YYYY-MM-DD)">
                                         </div>
 
                                         <!-- Submit and Reset Buttons -->
@@ -85,14 +85,14 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Keterangan</th>
-                                            <th class="text-center">Stok Awal</th>
-                                            <th class="text-center">Masuk</th>
-                                            <th class="text-center">Keluar</th>
-                                            <th class="text-center">Stok Akhir</th>
-                                            <th class="text-center">Jumlah Stok Palet Baik</th>
-                                            <th class="text-center">Jumlah Stok Palet Rusak</th>
+                                            <th class="text-center">Date</th>
+                                            <th class="text-center">Description</th>
+                                            <th class="text-center">Initial Stock</th>
+                                            <th class="text-center">In</th>
+                                            <th class="text-center">Out</th>
+                                            <th class="text-center">Ending Stock</th>
+                                            <th class="text-center">Stock Quantity of Good Pallets</th>
+                                            <th class="text-center">Stock Quantity of Damaged Pallets</th>
                                             {{-- <th>Created At</th> --}}
                                             <th class="text-center">Action</th>
                                         </tr>

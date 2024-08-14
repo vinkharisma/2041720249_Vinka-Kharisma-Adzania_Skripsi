@@ -61,7 +61,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
                                             <label for="search" class="sr-only">Search</label>
-                                            <input type="text" name="search" class="form-control" id="search" placeholder="Search by Name, Email, No Pegawai, Departemen, No HP">
+                                            <input type="text" name="search" class="form-control" id="search" placeholder="Search by Name, Email, Employee Number, Department, Phone Number">
                                         </div>
                                         <div class="form-group col-md-2 text-right" style="padding-left: 0px; padding-right: 15px;">
                                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
@@ -78,9 +78,9 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>No Pegawai</th>
-                                            <th>Departemen</th>
-                                            <th>No HP</th>
+                                            <th>Employee Number</th>
+                                            <th>Department</th>
+                                            <th>Phone Number</th>
                                             {{-- <th>Created At</th> --}}
                                             <th class="text-center">Action</th>
                                         </tr>

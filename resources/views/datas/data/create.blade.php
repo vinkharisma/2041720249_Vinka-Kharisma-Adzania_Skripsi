@@ -24,7 +24,7 @@
                             <div class="col-md-6">
                                 {{-- Tanggal --}}
                                 <div class="form-group">
-                                    <label for="tanggal">Tanggal</label>
+                                    <label for="tanggal">Date</label>
                                     <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
                                         name="tanggal" placeholder="Enter Tanggal">
                                     @error('tanggal')
@@ -36,7 +36,7 @@
 
                                 {{-- Keterangan --}}
                                 <div class="form-group">
-                                    <label for="name">Keterangan</label>
+                                    <label for="name">Description</label>
                                     <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
                                         <option value="TERPAKAI">TERPAKAI</option>
                                         <option value="KOSONG">KOSONG</option>
@@ -50,7 +50,7 @@
 
                                 {{-- Stok Awal --}}
                                 <div class="form-group">
-                                    <label for="stok_awal">Stok Awal</label>
+                                    <label for="stok_awal">Initial Stock</label>
                                     <input type="text" class="form-control @error('stok_awal') is-invalid @enderror" id="stok_awal"
                                         name="stok_awal" placeholder="Enter Stok Awal">
                                     @error('stok_awal')
@@ -62,7 +62,7 @@
 
                                 {{-- Masuk --}}
                                 <div class="form-group">
-                                    <label for="masuk">Masuk</label>
+                                    <label for="masuk">In</label>
                                     <input type="text" class="form-control @error('masuk') is-invalid @enderror" id="masuk"
                                         name="masuk" placeholder="Enter Masuk">
                                     @error('masuk')
@@ -75,7 +75,7 @@
                             <div class="col-md-6">
                                 {{-- Keluar --}}
                                 <div class="form-group">
-                                    <label for="keluar">Keluar</label>
+                                    <label for="keluar">Out</label>
                                     <input type="text" class="form-control @error('keluar') is-invalid @enderror" id="keluar"
                                         name="keluar" placeholder="Enter Keluar">
                                     @error('keluar')
@@ -87,7 +87,7 @@
 
                                 {{-- Stok Akhir --}}
                                 <div class="form-group">
-                                    <label for="stok_akhir">Stok Akhir</label>
+                                    <label for="stok_akhir">Ending Stoc</label>
                                     <input type="text" class="form-control @error('stok_akhir') is-invalid @enderror" id="stok_akhir"
                                         name="stok_akhir" placeholder="Enter Stok Akhir">
                                     @error('stok_akhir')
@@ -99,7 +99,7 @@
 
                                 {{-- Jumlah Stok Palet Baik --}}
                                 <div class="form-group">
-                                    <label for="jumlah_stok_palet_baik">Jumlah Stok Palet Baik</label>
+                                    <label for="jumlah_stok_palet_baik">Stock Quantity of Good Pallets</label>
                                     <input type="text" class="form-control @error('jumlah_stok_palet_baik') is-invalid @enderror" id="jumlah_stok_palet_baik"
                                         name="jumlah_stok_palet_baik" placeholder="Enter Jumlah Stok Palet Baik">
                                     @error('jumlah_stok_palet_baik')
@@ -111,7 +111,7 @@
 
                                 {{-- Jumlah Stok Palet Rusak --}}
                                 <div class="form-group">
-                                    <label for="jumlah_stok_palet_rusak">Jumlah Stok Palet Rusak</label>
+                                    <label for="jumlah_stok_palet_rusak">Stock Quantity of Damaged Pallets</label>
                                     <input type="text" class="form-control @error('jumlah_stok_palet_rusak') is-invalid @enderror" id="jumlah_stok_palet_rusak"
                                         name="jumlah_stok_palet_rusak" placeholder="Enter Jumlah Stok Palet Rusak">
                                     @error('jumlah_stok_palet_rusak')

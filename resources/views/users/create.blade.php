@@ -59,9 +59,9 @@
 
                         {{-- No Pegawai --}}
                         <div class="form-group">
-                            <label for="no_pegawai">No Pegawai</label>
+                            <label for="no_pegawai">Employee Number</label>
                             <input type="text" class="form-control @error('no_pegawai') is-invalid @enderror" id="no_pegawai"
-                                name="no_pegawai" placeholder="Enter No Pegawai">
+                                name="no_pegawai" placeholder="Enter Employee Number">
                             @error('no_pegawai')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -71,9 +71,9 @@
 
                         {{-- Departemen --}}
                         <div class="form-group">
-                            <label for="departemen">Departemen</label>
+                            <label for="departemen">Department</label>
                             <input type="text" class="form-control @error('departemen') is-invalid @enderror" id="departemen"
-                                name="departemen" placeholder="Enter Departemen">
+                                name="departemen" placeholder="Enter Department">
                             @error('departemen')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -83,9 +83,9 @@
 
                         {{-- No HP --}}
                         <div class="form-group">
-                            <label for="no_hp">No HP</label>
+                            <label for="no_hp">Phone Number</label>
                             <input type="text" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp"
-                                name="no_hp" placeholder="Enter No HP">
+                                name="no_hp" placeholder="Enter Phone Number">
                             @error('no_hp')
                                 <div class="invalid-feedback">
                                     {{ $message }}
