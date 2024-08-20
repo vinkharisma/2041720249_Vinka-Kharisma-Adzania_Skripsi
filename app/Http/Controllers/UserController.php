@@ -41,18 +41,29 @@ class UserController extends Controller
         ]);
 
         // Mengambil data
-        $users = DB::table('users')
-            ->when($request->input('search'), function ($query, $search) {
-                return $query->where(function ($query) use ($search) {
-                    $query->where('name', 'like', '%' . $search . '%')
-                        ->orWhere('email', 'like', '%' . $search . '%')
-                        ->orWhere('no_pegawai', 'like', '%' . $search . '%')
-                        ->orWhere('departemen', 'like', '%' . $search . '%')
-                        ->orWhere('no_hp', 'like', '%' . $search . '%');
-                });
-            })
-            ->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
-            ->paginate(10);
+        // $users = DB::table('users')
+        //     ->when($request->input('search'), function ($query, $search) {
+        //         return $query->where(function ($query) use ($search) {
+        //             $query->where('name', 'like', '%' . $search . '%')
+        //                 ->orWhere('email', 'like', '%' . $search . '%')
+        //                 ->orWhere('no_pegawai', 'like', '%' . $search . '%')
+        //                 ->orWhere('departemen', 'like', '%' . $search . '%')
+        //                 ->orWhere('no_hp', 'like', '%' . $search . '%');
+        //         });
+        //     })
+        //     ->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
+        //     ->paginate(10);
+
+        $users = User::when($request->input('search'), function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('no_pegawai', 'like', '%' . $search . '%')
+                    ->orWhere('departemen', 'like', '%' . $search . '%')
+                    ->orWhere('no_hp', 'like', '%' . $search . '%');
+            });
+        })->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))->paginate(10);
+        
         return view('users.index', compact('users'));
     }
 
@@ -132,12 +143,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function destroy(User $user)
+    // {
+    //     // Delete data
+    //     $user->delete();
+    //     return redirect()->route('user.index')->with('success', 'User Deleted Successfully');
+    // }
     public function destroy(User $user)
     {
-        // Delete data
+        // Cek apakah user memiliki role 'PPIC'
+        if ($user->hasRole('PPIC')) {
+            return redirect()->route('user.index')->with('error', 'User dengan role PPIC tidak dapat dihapus.');
+        }
+
+        // Lanjutkan penghapusan jika tidak memiliki role PPIC
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User Deleted Successfully');
     }
+
 
     public function export()
     {

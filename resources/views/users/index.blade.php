@@ -102,14 +102,40 @@
                                                                 class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
-                                                        <form action="{{ route('user.destroy', $user->id) }}"
+                                                        {{-- <form action="{{ route('user.destroy', $user->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>
-                                                        </form>
+                                                        </form> --}}
+                                                        {{-- @if (!$user->hasRole('ppic'))
+                                                            <form action="{{ route('user.destroy', $user->id) }}"
+                                                                method="POST" class="ml-2">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                    <i class="fas fa-times"></i> Delete
+                                                                </button>
+                                                            </form>
+                                                        @else
+                                                            <button class="btn btn-sm btn-danger btn-icon" disabled>
+                                                                <i class="fas fa-times"></i> Delete
+                                                            </button>
+                                                        @endif --}}
+                                                        @if ($user->roles->contains('name', 'ppic'))
+                                                            <!-- User memiliki role 'ppic', tombol delete tidak muncul -->
+                                                        @else
+                                                            <!-- Tampilkan tombol delete jika user bukan 'ppic' -->
+                                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="ml-2">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                    <i class="fas fa-times"></i> Delete
+                                                                </button>
+                                                            </form>
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>
