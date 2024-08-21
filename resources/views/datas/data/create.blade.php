@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <label for="tanggal">Date</label>
                                     <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
-                                        name="tanggal" placeholder="Enter Tanggal">
+                                        name="tanggal" placeholder="Enter Date">
                                     @error('tanggal')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -38,8 +38,8 @@
                                 <div class="form-group">
                                     <label for="name">Description</label>
                                     <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                                        <option value="TERPAKAI">TERPAKAI</option>
-                                        <option value="KOSONG">KOSONG</option>
+                                        <option value="USED">USED</option>
+                                        <option value="EMPTY">EMPTY</option>
                                     </select>
                                     @error('name')
                                         <div class="invalid-feedback">
@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label for="stok_awal">Initial Stock</label>
                                     <input type="text" class="form-control @error('stok_awal') is-invalid @enderror" id="stok_awal"
-                                        name="stok_awal" placeholder="Enter Stok Awal">
+                                        name="stok_awal" placeholder="Enter Initial Stock">
                                     @error('stok_awal')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <label for="masuk">In</label>
                                     <input type="text" class="form-control @error('masuk') is-invalid @enderror" id="masuk"
-                                        name="masuk" placeholder="Enter Masuk">
+                                        name="masuk" placeholder="Enter Incoming Stock Data">
                                     @error('masuk')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     <label for="keluar">Out</label>
                                     <input type="text" class="form-control @error('keluar') is-invalid @enderror" id="keluar"
-                                        name="keluar" placeholder="Enter Keluar">
+                                        name="keluar" placeholder="Enter Outgoing Stock Data">
                                     @error('keluar')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -87,9 +87,9 @@
 
                                 {{-- Stok Akhir --}}
                                 <div class="form-group">
-                                    <label for="stok_akhir">Ending Stoc</label>
+                                    <label for="stok_akhir">Ending Stock</label>
                                     <input type="text" class="form-control @error('stok_akhir') is-invalid @enderror" id="stok_akhir"
-                                        name="stok_akhir" placeholder="Enter Stok Akhir">
+                                        name="stok_akhir" placeholder="Enter Ending Stock">
                                     @error('stok_akhir')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -101,7 +101,7 @@
                                 <div class="form-group">
                                     <label for="jumlah_stok_palet_baik">Stock Quantity of Good Pallets</label>
                                     <input type="text" class="form-control @error('jumlah_stok_palet_baik') is-invalid @enderror" id="jumlah_stok_palet_baik"
-                                        name="jumlah_stok_palet_baik" placeholder="Enter Jumlah Stok Palet Baik">
+                                        name="jumlah_stok_palet_baik" placeholder="Enter Stock Quantity of Good Pallets">
                                     @error('jumlah_stok_palet_baik')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -113,7 +113,7 @@
                                 <div class="form-group">
                                     <label for="jumlah_stok_palet_rusak">Stock Quantity of Damaged Pallets</label>
                                     <input type="text" class="form-control @error('jumlah_stok_palet_rusak') is-invalid @enderror" id="jumlah_stok_palet_rusak"
-                                        name="jumlah_stok_palet_rusak" placeholder="Enter Jumlah Stok Palet Rusak">
+                                        name="jumlah_stok_palet_rusak" placeholder="Enter Stock Quantity of Damaged Pallets">
                                     @error('jumlah_stok_palet_rusak')
                                         <div class="invalid-feedback">
                                             {{ $message }}

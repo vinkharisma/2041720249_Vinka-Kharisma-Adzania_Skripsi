@@ -15,7 +15,7 @@ class ResultController extends Controller
     {
         // Ambil data harian dari database
         // $dataHarian = DB::table('datas')->get();
-        $dataHarian = DB::table('datas')->where('name', 'KOSONG')->get();
+        $dataHarian = DB::table('datas')->where('name', 'EMPTY')->get();
 
         // Ubah data menjadi format mingguan (Minggu ke Sabtu)
         $dataMingguan = $dataHarian->groupBy(function($date) {

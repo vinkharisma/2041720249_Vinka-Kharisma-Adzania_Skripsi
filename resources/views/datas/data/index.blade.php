@@ -62,13 +62,13 @@
                                     <div class="form-row" style="padding-left: 5px; align-items: center;">
                                         <!-- Data Name Input -->
                                         <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
-                                            <label for="name" class="sr-only">Keterangan</label>
+                                            <label for="name" class="sr-only">Description</label>
                                             <input style="width: 100%;" type="text" name="name" class="form-control" id="name" placeholder="Description">
                                         </div>
 
                                         <!-- Tanggal Input -->
                                         <div class="form-group col-md-5" style="padding-left: 0px; padding-right: 15px;">
-                                            <label for="tanggal" class="sr-only">Tanggal</label>
+                                            <label for="tanggal" class="sr-only">Date</label>
                                             <input style="width: 100%;" type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Date (YYYY, YYYY-MM, YYYY-MM-DD)">
                                         </div>
 

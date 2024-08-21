@@ -19,7 +19,7 @@ class DataSeeder extends Seeder
         //
         // Data::create([
         //     'tanggal' => "24/12/25",
-        //     'name' => "TERPAKAI",
+        //     'name' => "USED",
         //     'stok_awal' => "2",
         //     'masuk' => "0",
         //     'keluar' => "0",
@@ -32,7 +32,7 @@ class DataSeeder extends Seeder
             [
                 [
                     'tanggal' => "20/11/01",
-                    'name' => "TERPAKAI",
+                    'name' => "USED",
                     'stok_awal' => "100",
                     'masuk' => "15",
                     'keluar' => "0",
@@ -44,7 +44,7 @@ class DataSeeder extends Seeder
                 ],
                 [
                     'tanggal' => "20/11/01",
-                    'name' => "KOSONG",
+                    'name' => "EMPTY",
                     'stok_awal' => "125",
                     'masuk' => "0",
                     'keluar' => "20",
@@ -56,7 +56,7 @@ class DataSeeder extends Seeder
                 ],
                 [
                     'tanggal' => "20/11/02",
-                    'name' => "TERPAKAI",
+                    'name' => "USED",
                     'stok_awal' => "115",
                     'masuk' => "11",
                     'keluar' => "0",
@@ -68,7 +68,7 @@ class DataSeeder extends Seeder
                 ],
                 [
                     'tanggal' => "20/11/02",
-                    'name' => "KOSONG",
+                    'name' => "EMPTY",
                     'stok_awal' => "105",
                     'masuk' => "82",
                     'keluar' => "0",
@@ -80,7 +80,7 @@ class DataSeeder extends Seeder
                 ],
         //         [
         //             'tanggal' => "20/11/03",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "126",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -92,7 +92,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/03",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "187",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -104,7 +104,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/04",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "126",
         //             'masuk' => "0",
         //             'keluar' => "8",
@@ -116,7 +116,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/04",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "187",
         //             'masuk' => "133",
         //             'keluar' => "0",
@@ -128,7 +128,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/05",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "118",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -140,7 +140,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/05",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "320",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -152,7 +152,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/06",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "118",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -164,7 +164,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/06",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "320",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -176,7 +176,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/07",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "118",
         //             'masuk' => "0",
         //             'keluar' => "75",
@@ -188,7 +188,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/07",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "320",
         //             'masuk' => "0",
         //             'keluar' => "65",
@@ -200,7 +200,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/08",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "43",
         //             'masuk' => "26",
         //             'keluar' => "0",
@@ -212,7 +212,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/08",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "255",
         //             'masuk' => "0",
         //             'keluar' => "1",
@@ -224,7 +224,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/09",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "69",
         //             'masuk' => "14",
         //             'keluar' => "0",
@@ -236,7 +236,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/09",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "254",
         //             'masuk' => "5",
         //             'keluar' => "40",
@@ -248,7 +248,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/10",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "83",
         //             'masuk' => "18",
         //             'keluar' => "0",
@@ -260,7 +260,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/10",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "219",
         //             'masuk' => "4",
         //             'keluar' => "0",
@@ -272,7 +272,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/11",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "101",
         //             'masuk' => "13",
         //             'keluar' => "0",
@@ -284,7 +284,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/11",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "223",
         //             'masuk' => "3",
         //             'keluar' => "0",
@@ -296,7 +296,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/12",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "114",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -308,7 +308,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/12",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "226",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -320,7 +320,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/13",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "114",
         //             'masuk' => "6",
         //             'keluar' => "0",
@@ -332,7 +332,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/13",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "226",
         //             'masuk' => "128",
         //             'keluar' => "20",
@@ -344,7 +344,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/14",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "120",
         //             'masuk' => "18",
         //             'keluar' => "0",
@@ -356,7 +356,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/14",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "334",
         //             'masuk' => "5",
         //             'keluar' => "20",
@@ -368,7 +368,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/15",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "138",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -380,7 +380,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/15",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "319",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -392,7 +392,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/16",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "140",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -404,7 +404,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/16",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "319",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -416,7 +416,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/17",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "140",
         //             'masuk' => "5",
         //             'keluar' => "0",
@@ -428,7 +428,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/17",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "319",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -440,7 +440,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/18",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "145",
         //             'masuk' => "8",
         //             'keluar' => "16",
@@ -452,7 +452,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/18",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "321",
         //             'masuk' => "3",
         //             'keluar' => "4",
@@ -464,7 +464,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/19",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "137",
         //             'masuk' => "0",
         //             'keluar' => "64",
@@ -476,7 +476,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/19",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "320",
         //             'masuk' => "0",
         //             'keluar' => "16",
@@ -488,7 +488,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/20",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "73",
         //             'masuk' => "0",
         //             'keluar' => "6",
@@ -500,7 +500,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/20",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "304",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -512,7 +512,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/21",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -524,7 +524,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/21",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -536,7 +536,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/22",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -548,7 +548,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/22",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -560,7 +560,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/23",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -572,7 +572,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/23",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -584,7 +584,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/24",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -596,7 +596,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/24",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -608,7 +608,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/25",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "40",
@@ -620,7 +620,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/25",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "40",
         //             'keluar' => "0",
@@ -632,7 +632,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/26",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "67",
         //             'masuk' => "0",
         //             'keluar' => "40",
@@ -644,7 +644,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/26",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "306",
         //             'masuk' => "40",
         //             'keluar' => "0",
@@ -656,7 +656,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/27",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "27",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -668,7 +668,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/27",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "345",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -680,7 +680,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/28",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "27",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -692,7 +692,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/28",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "345",
         //             'masuk' => "0",
         //             'keluar' => "20",
@@ -704,7 +704,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/29",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "27",
         //             'masuk' => "11",
         //             'keluar' => "0",
@@ -716,7 +716,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/29",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "325",
         //             'masuk' => "5",
         //             'keluar' => "20",
@@ -728,7 +728,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/30",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "38",
         //             'masuk' => "9",
         //             'keluar' => "0",
@@ -740,7 +740,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/11/30",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "310",
         //             'masuk' => "1",
         //             'keluar' => "0",
@@ -752,7 +752,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/01",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -764,7 +764,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/01",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -776,7 +776,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/02",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -788,7 +788,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/02",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -800,7 +800,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/03",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -812,7 +812,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/03",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -824,7 +824,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/04",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -836,7 +836,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/04",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -848,7 +848,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/05",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -860,7 +860,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/05",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -872,7 +872,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/06",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -884,7 +884,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/06",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -896,7 +896,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/07",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "47",
         //             'masuk' => "0",
         //             'keluar' => "46",
@@ -908,7 +908,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/07",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "311",
         //             'masuk' => "0",
         //             'keluar' => "7",
@@ -920,7 +920,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/08",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "1",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -932,7 +932,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/08",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "304",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -944,7 +944,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/09",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "1",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -956,7 +956,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/09",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "304",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -968,7 +968,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/10",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "1",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -980,7 +980,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/10",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "304",
         //             'masuk' => "0",
         //             'keluar' => "25",
@@ -992,7 +992,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/11",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "1",
         //             'masuk' => "14",
         //             'keluar' => "0",
@@ -1004,7 +1004,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/11",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1016,7 +1016,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/12",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1028,7 +1028,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/12",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1040,7 +1040,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/13",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1052,7 +1052,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/13",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1064,7 +1064,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/14",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1076,7 +1076,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/14",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1088,7 +1088,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/15",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1100,7 +1100,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/15",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1112,7 +1112,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/16",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1124,7 +1124,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/16",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1136,7 +1136,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/17",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "5",
         //             'keluar' => "0",
@@ -1148,7 +1148,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/17",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "279",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -1160,7 +1160,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/18",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "20",
         //             'masuk' => "0",
         //             'keluar' => "11",
@@ -1172,7 +1172,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/18",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "281",
         //             'masuk' => "11",
         //             'keluar' => "0",
@@ -1184,7 +1184,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/19",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1196,7 +1196,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/19",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1208,7 +1208,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/20",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1220,7 +1220,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/20",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1232,7 +1232,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/21",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1244,7 +1244,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/21",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1256,7 +1256,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/22",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1268,7 +1268,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/22",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1280,7 +1280,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/23",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1292,7 +1292,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/23",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1304,7 +1304,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/24",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "9",
         //             'masuk' => "11",
         //             'keluar' => "0",
@@ -1316,7 +1316,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/24",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "292",
         //             'masuk' => "2",
         //             'keluar' => "20",
@@ -1328,7 +1328,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/25",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "20",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1340,7 +1340,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/25",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "274",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1352,7 +1352,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/26",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "20",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1364,7 +1364,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/26",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "274",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1376,7 +1376,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/27",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "20",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1388,7 +1388,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/27",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "274",
         //             'masuk' => "0",
         //             'keluar' => "40",
@@ -1400,7 +1400,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/28",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "20",
         //             'masuk' => "12",
         //             'keluar' => "0",
@@ -1412,7 +1412,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/28",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "234",
         //             'masuk' => "3",
         //             'keluar' => "20",
@@ -1424,7 +1424,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/29",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "32",
         //             'masuk' => "11",
         //             'keluar' => "0",
@@ -1436,7 +1436,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/29",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "217",
         //             'masuk' => "10",
         //             'keluar' => "0",
@@ -1448,7 +1448,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/30",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "43",
         //             'masuk' => "38",
         //             'keluar' => "0",
@@ -1460,7 +1460,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/30",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "227",
         //             'masuk' => "2",
         //             'keluar' => "0",
@@ -1472,7 +1472,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/31",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "81",
         //             'masuk' => "10",
         //             'keluar' => "89",
@@ -1484,7 +1484,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "20/12/31",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "229",
         //             'masuk' => "0",
         //             'keluar' => "31",
@@ -1496,7 +1496,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "21/01/01",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "2",
         //             'masuk' => "13",
         //             'keluar' => "0",
@@ -1508,7 +1508,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "21/01/01",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "198",
         //             'masuk' => "1",
         //             'keluar' => "0",
@@ -1520,7 +1520,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "21/01/02",
-        //             'name' => "TERPAKAI",
+        //             'name' => "USED",
         //             'stok_awal' => "15",
         //             'masuk' => "0",
         //             'keluar' => "0",
@@ -1532,7 +1532,7 @@ class DataSeeder extends Seeder
         //         ],
         //         [
         //             'tanggal' => "21/01/02",
-        //             'name' => "KOSONG",
+        //             'name' => "EMPTY",
         //             'stok_awal' => "199",
         //             'masuk' => "0",
         //             'keluar' => "43",

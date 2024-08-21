@@ -16,8 +16,8 @@ class DashboardController extends Controller
     {
         // Mengambil semua data dari model Data
         $dataStok = Data::select('stok_akhir', 'tanggal')->get();
-        $dataPaletKosong = Data::where('name', 'kosong')->select('stok_akhir', 'tanggal')->get();
-        $dataPaletTerpakai = Data::where('name', 'terpakai')->select('stok_akhir', 'tanggal')->get();
+        $dataPaletKosong = Data::where('name', 'empty')->select('stok_akhir', 'tanggal')->get();
+        $dataPaletTerpakai = Data::where('name', 'used')->select('stok_akhir', 'tanggal')->get();
         $dataPrediksi = Prediction::select('tanggal', 'hasil')->get();
 
         // Memeriksa apakah data ada
@@ -35,8 +35,8 @@ class DashboardController extends Controller
         $jumlah_stok_palet_rusak = $data_last->jumlah_stok_palet_rusak;
 
         // Mengambil data paling akhir untuk stok palet terpakai dan kosong
-        $stokPaletTerpakai = Data::where('name', 'terpakai')->orderBy('tanggal', 'desc')->first();
-        $stokPaletKosong = Data::where('name', 'kosong')->orderBy('tanggal', 'desc')->first();
+        $stokPaletTerpakai = Data::where('name', 'used')->orderBy('tanggal', 'desc')->first();
+        $stokPaletKosong = Data::where('name', 'empty')->orderBy('tanggal', 'desc')->first();
 
         // Menghitung total stok palet (Dipakai + Kosong)
         $totalStokPalet = ($stokPaletTerpakai->stok_akhir ?? 0) + ($stokPaletKosong->stok_akhir ?? 0);

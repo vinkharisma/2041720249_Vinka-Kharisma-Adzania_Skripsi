@@ -56,7 +56,7 @@ class StokChart
     public function buildPaletTerpakaiChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
         // Mengambil data stok akhir untuk palet terpakai dari database
-        $datas = Data::where('name', 'terpakai')
+        $datas = Data::where('name', 'used')
         ->select('stok_akhir', 'tanggal')
         ->get();
         // ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))
@@ -102,7 +102,7 @@ class StokChart
     public function buildPaletKosongChart(): \ArielMejiaDev\LarapexCharts\LineChart
     {
         // Mengambil data stok akhir untuk palet kosong dari database
-        $datas = Data::where('name', 'kosong')
+        $datas = Data::where('name', 'empty')
         ->select('stok_akhir', 'tanggal')
         ->get();
         // ->select(DB::raw('stok_akhir, DATE_FORMAT(tanggal, "%Y-%m") as bulan'))

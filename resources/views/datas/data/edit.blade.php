@@ -38,8 +38,8 @@
                         <div class="form-group">
                             <label for="name">Description</label>
                             <select class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                                <option value="TERPAKAI" {{ $data->name == 'TERPAKAI' ? 'selected' : '' }}>TERPAKAI</option>
-                                <option value="KOSONG" {{ $data->name == 'KOSONG' ? 'selected' : '' }}>KOSONG</option>
+                                <option value="USED" {{ $data->name == 'USED' ? 'selected' : '' }}>USED</option>
+                                <option value="EMPTY" {{ $data->name == 'EMPTY' ? 'selected' : '' }}>EMPTY</option>
                             </select>
                             @error('name')
                                 <div class="invalid-feedback">
