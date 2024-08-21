@@ -134,8 +134,8 @@ class DataController extends Controller
     {
         // Mengupdate data ke database
         $validate = $request->validated();
-
         $data->update($validate);
+        
         return redirect()->route('data.index')->with('success', 'Data Updated Successfully');
     }
 

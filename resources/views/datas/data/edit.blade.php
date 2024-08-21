@@ -88,7 +88,7 @@
                         <div class="form-group">
                             <label for="stok_akhir">Ending Stock</label>
                             <input type="text" class="form-control @error('stok_akhir') is-invalid @enderror" id="stok_akhir"
-                                name="stok_akhir" value="{{ $data->keluar }}">
+                                name="stok_akhir" value="{{ $data->stok_akhir }}">
                             @error('stok_akhir')
                                 <div class="invalid-feedback">
                                     {{ $message }}
