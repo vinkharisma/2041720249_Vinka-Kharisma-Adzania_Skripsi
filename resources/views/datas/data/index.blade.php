@@ -100,7 +100,8 @@
                                         @foreach ($datas as $key => $data)
                                             <tr>
                                                 <td class="text-center">{{ ($datas->currentPage() - 1) * $datas->perPage() + $key + 1 }}</td>
-                                                <td>{{ $data->tanggal }}</td>
+                                                {{-- <td>{{ $data->tanggal }}</td> --}}
+                                                <td>{{ $data->formatted_tanggal }}</td>
                                                 <td>{{ $data->name }}</td>
                                                 <td class="text-right">{{ $data->stok_awal }}</td>
                                                 <td class="text-right">{{ $data->masuk }}</td>

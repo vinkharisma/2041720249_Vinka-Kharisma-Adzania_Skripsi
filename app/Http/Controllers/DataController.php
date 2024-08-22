@@ -71,7 +71,19 @@ class DataController extends Controller
             ->when($request->input('jumlah_stok_palet_rusak'), function ($query, $jumlah_stok_palet_rusak) {
                 return $query->where('jumlah_stok_palet_rusak', 'like', '%' . $jumlah_stok_palet_rusak . '%');
             })
-            ->select('id', DB::raw("DATE_FORMAT(tanggal, '%d %M %Y') as tanggal"), 'name', 'stok_awal', 'masuk', 'keluar', 'stok_akhir', 'jumlah_stok_palet_baik', 'jumlah_stok_palet_rusak', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
+            // ->select('id', DB::raw("DATE_FORMAT(tanggal, '%d %M %Y') as tanggal"), 'name', 'stok_awal', 'masuk', 'keluar', 'stok_akhir', 'jumlah_stok_palet_baik', 'jumlah_stok_palet_rusak', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))
+            ->select(
+                'id',
+                DB::raw("DATE_FORMAT(tanggal, '%d %M %Y') as formatted_tanggal"), // Format tanggal
+                'name',
+                'stok_awal',
+                'masuk',
+                'keluar',
+                'stok_akhir',
+                'jumlah_stok_palet_baik',
+                'jumlah_stok_palet_rusak'
+            )
+            ->orderBy('tanggal', 'desc')
             ->paginate(20);
         return view('datas.data.index', compact('datas'));
     }
@@ -135,7 +147,7 @@ class DataController extends Controller
         // Mengupdate data ke database
         $validate = $request->validated();
         $data->update($validate);
-        
+
         return redirect()->route('data.index')->with('success', 'Data Updated Successfully');
     }
 
