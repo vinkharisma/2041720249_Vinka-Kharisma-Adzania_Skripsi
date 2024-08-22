@@ -9,38 +9,34 @@ use App\Models\DataPaletTerpakai;
 use App\Models\Prediction;
 use Doctrine\Common\Cache\Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function index(StokChart $chart)
+    public function index(StokChart $chart, Request $request)
     {
-        // Mengambil semua data dari model Data
-        $dataStok = Data::select('stok_akhir', 'tanggal')->get();
-        $dataPaletKosong = Data::where('name', 'empty')->select('stok_akhir', 'tanggal')->get();
-        $dataPaletTerpakai = Data::where('name', 'used')->select('stok_akhir', 'tanggal')->get();
-        $dataPrediksi = Prediction::select('tanggal', 'hasil')->get();
+        // Ambil tahun dari query string, default ke tahun saat ini
+        $year = $request->input('year', date('Y'));
 
-        // Memeriksa apakah data ada
-        // dd($dataStok, $dataPaletKosong, $dataPaletTerpakai, $dataPrediksi);
+        // Mengambil data dengan filter tahun
+        $dataStok = Data::whereYear('tanggal', $year)->select('stok_akhir', 'tanggal')->get();
+        $dataPaletKosong = Data::where('name', 'empty')->whereYear('tanggal', $year)->select('stok_akhir', 'tanggal')->get();
+        $dataPaletTerpakai = Data::where('name', 'used')->whereYear('tanggal', $year)->select('stok_akhir', 'tanggal')->get();
+        $dataPrediksi = Prediction::whereYear('tanggal', $year)->select('tanggal', 'hasil')->get();
 
-        // Mengambil data pertama untuk stok_awal dan data terakhir untuk stok_akhir, jumlah_stok_palet_baik, dan jumlah_stok_palet_rusak
-        // $data_first = Data::first();
-        $data_first = Data::orderBy('id', 'desc')->first();
-        $data_last = Data::orderBy('id', 'desc')->first();
+        // Mengambil data pertama dan terakhir untuk stok
+        $data_first = Data::whereYear('tanggal', $year)->orderBy('id', 'desc')->first();
+        $data_last = Data::whereYear('tanggal', $year)->orderBy('id', 'desc')->first();
 
-        // Mengambil stok_awal dari data pertama dan stok_akhir, jumlah_stok_palet_baik, jumlah_stok_palet_rusak dari data terakhir
-        $stok_awal = $data_first->stok_awal;
-        $stok_akhir = $data_last->stok_akhir;
-        $jumlah_stok_palet_baik = $data_last->jumlah_stok_palet_baik;
-        $jumlah_stok_palet_rusak = $data_last->jumlah_stok_palet_rusak;
+        $stok_awal = $data_first->stok_awal ?? 0;
+        $stok_akhir = $data_last->stok_akhir ?? 0;
+        $jumlah_stok_palet_baik = $data_last->jumlah_stok_palet_baik ?? 0;
+        $jumlah_stok_palet_rusak = $data_last->jumlah_stok_palet_rusak ?? 0;
 
-        // Mengambil data paling akhir untuk stok palet terpakai dan kosong
-        $stokPaletTerpakai = Data::where('name', 'used')->orderBy('tanggal', 'desc')->first();
-        $stokPaletKosong = Data::where('name', 'empty')->orderBy('tanggal', 'desc')->first();
+        $stokPaletTerpakai = Data::where('name', 'used')->whereYear('tanggal', $year)->orderBy('tanggal', 'desc')->first();
+        $stokPaletKosong = Data::where('name', 'empty')->whereYear('tanggal', $year)->orderBy('tanggal', 'desc')->first();
 
-        // Menghitung total stok palet (Dipakai + Kosong)
         $totalStokPalet = ($stokPaletTerpakai->stok_akhir ?? 0) + ($stokPaletKosong->stok_akhir ?? 0);
-
 
         // Bangun chart
         $chartStokAkhir = $chart->buildStokAkhirChart($dataStok);
@@ -48,26 +44,8 @@ class DashboardController extends Controller
         $chartPaletTerpakai = $chart->buildPaletTerpakaiChart($dataPaletTerpakai);
         $chartPrediksi = $chart->buildPrediksiChart($dataPrediksi);
 
-        // // Bangun grafik untuk prediksi jika perlu
-        // $prediksiFilePath = storage_path('app/public/prediksi_kebutuhan_palet_df.csv');
-        // $prediksiData = [];
-        // if (file_exists($prediksiFilePath)) {
-        //     $file = fopen($prediksiFilePath, 'r');
-        //     fgetcsv($file); // Mengabaikan header
-        //     while (($row = fgetcsv($file)) !== false) {
-        //         $prediksiData[] = [
-        //             'Tanggal' => $row[0],
-        //             'Prediksi Kebutuhan Palet' => $row[1],
-        //             // 'Lower CI' => $row[2],
-        //             // 'Upper CI' => $row[3],
-        //         ];
-        //     }
-        //     fclose($file);
-        // }
-
-        // Mengirimkan stok_awal, stok_akhir, jumlah_stok_palet_baik, dan jumlah_stok_palet_rusak ke view dashboard
+        // Mengirimkan data ke view
         return view('dashboard', [
-            // 'chart' => $chart->build(),
             'chartStokAkhir' => $chartStokAkhir,
             'chartPaletKosong' => $chartPaletKosong,
             'chartPaletTerpakai' => $chartPaletTerpakai,
@@ -81,6 +59,9 @@ class DashboardController extends Controller
             'total_stok_palet' => $totalStokPalet,
             'stok_terpakai' => $stokPaletTerpakai->stok_akhir ?? 0,
             'stok_kosong' => $stokPaletKosong->stok_akhir ?? 0,
+
+            'years' => Data::select(DB::raw('YEAR(tanggal) as year'))->groupBy('year')->pluck('year'),
+            'selectedYear' => $year,
         ]);
     }
 }

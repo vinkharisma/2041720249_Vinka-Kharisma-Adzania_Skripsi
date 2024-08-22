@@ -165,6 +165,18 @@
                 </div>
             </div> --}}
             <div class="col-md-12">
+                <form action="{{ route('dashboard') }}" method="GET">
+                    <label for="year" class="form-label">Year:</label>
+                    <select name="year" id="year" class="form-select" onchange="this.form.submit()">
+                        @foreach ($years as $yearOption)
+                            <option value="{{ $yearOption }}" {{ $yearOption == $selectedYear ? 'selected' : '' }}>
+                                {{ $yearOption }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Stock Chart of Pallets in Use</h4>
