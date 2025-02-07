@@ -180,6 +180,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Stock Chart of Pallets in Use</h4>
+                        {{-- <form action="{{ route('dashboard') }}" method="GET" class="d-inline">
+                            <input type="hidden" name="chart" value="palet_terpakai">
+                            <select name="year" id="year_terpakai" class="form-select" onchange="this.form.submit()">
+                                @foreach ($years as $yearOption)
+                                    <option value="{{ $yearOption }}" {{ $yearOption == $selectedYear ? 'selected' : '' }}>
+                                        {{ $yearOption }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </form> --}}
                     </div>
                     <div class="card-body">
                         {!! $chartPaletTerpakai->container() !!}
@@ -190,6 +200,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Stock Chart of Pallets in Empty</h4>
+                        {{-- <form action="{{ route('dashboard') }}" method="GET" class="d-inline">
+                            <input type="hidden" name="chart" value="palet_kosong">
+                            <select name="year" id="year_kosong" class="form-select" onchange="this.form.submit()">
+                                @foreach ($years as $yearOption)
+                                    <option value="{{ $yearOption }}" {{ $yearOption == $selectedYear ? 'selected' : '' }}>
+                                        {{ $yearOption }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </form> --}}
                     </div>
                     <div class="card-body">
                         {!! $chartPaletKosong->container() !!}
@@ -200,6 +220,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Pallet Requirement Prediction Chart</h4>
+                        {{-- <form action="{{ route('dashboard') }}" method="GET" class="d-inline">
+                            <input type="hidden" name="chart" value="prediksi">
+                            <select name="year" id="year_prediksi" class="form-select" onchange="this.form.submit()">
+                                @foreach ($years as $yearOption)
+                                    <option value="{{ $yearOption }}" {{ $yearOption == $selectedYear ? 'selected' : '' }}>
+                                        {{ $yearOption }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </form> --}}
                     </div>
                     <div class="card-body">
                         {!! $chartPrediksi->container() !!}

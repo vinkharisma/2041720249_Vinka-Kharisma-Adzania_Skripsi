@@ -13,7 +13,6 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -63,7 +62,7 @@ class UserController extends Controller
                     ->orWhere('no_hp', 'like', '%' . $search . '%');
             });
         })->select('id', 'name', 'email', 'no_pegawai', 'departemen', 'no_hp', DB::raw("DATE_FORMAT(created_at, '%d %M %Y') as created_at"))->paginate(10);
-        
+
         return view('users.index', compact('users'));
     }
 

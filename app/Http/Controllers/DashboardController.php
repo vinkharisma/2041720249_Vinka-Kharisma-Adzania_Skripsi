@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Charts\StokChart;
 use App\Models\Data;
-use App\Models\DataPaletKosong;
-use App\Models\DataPaletTerpakai;
 use App\Models\Prediction;
-use Doctrine\Common\Cache\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,21 +21,7 @@ class DashboardController extends Controller
         $dataPaletTerpakai = Data::where('name', 'used')->whereYear('tanggal', $year)->select('stok_akhir', 'tanggal')->get();
         $dataPrediksi = Prediction::whereYear('tanggal', $year)->select('tanggal', 'hasil')->get();
 
-        // Mengambil data pertama dan terakhir untuk stok
-        $data_first = Data::whereYear('tanggal', $year)->orderBy('id', 'desc')->first();
-        $data_last = Data::whereYear('tanggal', $year)->orderBy('id', 'desc')->first();
-
-        $stok_awal = $data_first->stok_awal ?? 0;
-        $stok_akhir = $data_last->stok_akhir ?? 0;
-        $jumlah_stok_palet_baik = $data_last->jumlah_stok_palet_baik ?? 0;
-        $jumlah_stok_palet_rusak = $data_last->jumlah_stok_palet_rusak ?? 0;
-
-        $stokPaletTerpakai = Data::where('name', 'used')->whereYear('tanggal', $year)->orderBy('tanggal', 'desc')->first();
-        $stokPaletKosong = Data::where('name', 'empty')->whereYear('tanggal', $year)->orderBy('tanggal', 'desc')->first();
-
-        $totalStokPalet = ($stokPaletTerpakai->stok_akhir ?? 0) + ($stokPaletKosong->stok_akhir ?? 0);
-
-        // Bangun chart
+        // Build chart
         $chartStokAkhir = $chart->buildStokAkhirChart($dataStok);
         $chartPaletKosong = $chart->buildPaletKosongChart($dataPaletKosong);
         $chartPaletTerpakai = $chart->buildPaletTerpakaiChart($dataPaletTerpakai);
@@ -51,17 +34,18 @@ class DashboardController extends Controller
             'chartPaletTerpakai' => $chartPaletTerpakai,
             'chartPrediksi' => $chartPrediksi,
 
-            'stok_awal' => $stok_awal,
-            'stok_akhir' => $stok_akhir,
-            'jumlah_stok_palet_baik' => $jumlah_stok_palet_baik,
-            'jumlah_stok_palet_rusak' => $jumlah_stok_palet_rusak,
+            'stok_awal' => $dataStok->first()->stok_awal ?? 0,
+            'stok_akhir' => $dataStok->last()->stok_akhir ?? 0,
+            'jumlah_stok_palet_baik' => $dataStok->last()->jumlah_stok_palet_baik ?? 0,
+            'jumlah_stok_palet_rusak' => $dataStok->last()->jumlah_stok_palet_rusak ?? 0,
 
-            'total_stok_palet' => $totalStokPalet,
-            'stok_terpakai' => $stokPaletTerpakai->stok_akhir ?? 0,
-            'stok_kosong' => $stokPaletKosong->stok_akhir ?? 0,
+            'total_stok_palet' => ($dataPaletTerpakai->last()->stok_akhir ?? 0) + ($dataPaletKosong->last()->stok_akhir ?? 0),
+            'stok_terpakai' => $dataPaletTerpakai->last()->stok_akhir ?? 0,
+            'stok_kosong' => $dataPaletKosong->last()->stok_akhir ?? 0,
 
             'years' => Data::select(DB::raw('YEAR(tanggal) as year'))->groupBy('year')->pluck('year'),
             'selectedYear' => $year,
         ]);
     }
+
 }

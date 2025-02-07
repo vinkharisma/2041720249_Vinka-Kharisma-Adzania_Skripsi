@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Data;
 use App\Models\Prediction;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
